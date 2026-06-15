@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="uz"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Neo-Kyoto Soyalari | Obsidian Cinema</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed": "#1a1c1c",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-tint": "#c6c6c7",
+                        "tertiary-container": "#e2e2e2",
+                        "inverse-surface": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#353434",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-variant": "#353434",
+                        "on-tertiary-container": "#636565",
+                        "inverse-on-surface": "#313030",
+                        "inverse-primary": "#5d5f5f",
+                        "primary": "#ffffff",
+                        "outline": "#8e9192",
+                        "surface-bright": "#3a3939",
+                        "tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "background": "#141313",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-tertiary": "#2f3131",
+                        "surface": "#141313",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-container": "#e2e2e2",
+                        "on-secondary-container": "#b6b5b5",
+                        "surface-container-low": "#1c1b1b",
+                        "on-secondary": "#303031",
+                        "secondary-container": "#464747",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#e4e2e2",
+                        "secondary": "#c7c6c6",
+                        "outline-variant": "#444748",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#141313",
+                        "on-primary-container": "#636565",
+                        "on-background": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#2f3131",
+                        "primary-fixed": "#e2e2e2",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary-fixed-variant": "#454747"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "80px",
+                        "margin-mobile": "16px",
+                        "density-high": "8px",
+                        "unit": "4px",
+                        "margin-desktop": "48px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "sans": ["Geist", "sans-serif"],
+                        "display-lg": ["Geist", "sans-serif"],
+                        "label-md": ["Geist", "sans-serif"],
+                        "headline-sm": ["Geist", "sans-serif"],
+                        "body-lg": ["Geist", "sans-serif"],
+                        "headline-lg": ["Geist", "sans-serif"],
+                        "body-sm": ["Geist", "sans-serif"],
+                        "display-sm": ["Geist", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #141313;
+            color: #e5e2e1;
+            font-family: 'Geist', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .manga-page-container {
+            transition: opacity 0.6s ease;
+        }
+        .sticky-header {
+            backdrop-filter: blur(20px);
+            background-color: rgba(20, 19, 19, 0.85);
+            border-bottom: 1px solid #444748;
+        }
+        /* Progress bar logic */
+        #reading-progress {
+            transition: width 0.1s ease-out;
+        }
+        .manga-card-shadow {
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top Bar Navigation Shell -->
+<header class="sticky-header fixed top-0 left-0 w-full z-50 h-16 flex items-center justify-between px-margin-desktop">
+<div class="flex items-center gap-6">
+<button class="text-primary hover:opacity-70 transition-opacity flex items-center">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight">Neo-Kyoto Soyalari</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Obsidian Cinema Original</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="hidden md:flex items-center gap-2 px-4 py-1.5 border border-outline-variant rounded bg-surface-container-low cursor-pointer hover:border-primary transition-colors">
+<span class="font-label-md text-label-md text-on-surface">148-bob</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" title="Xatcho'p">bookmark</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" title="Ulashish">share</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" title="Sozlamalar">settings</button>
+</div>
+</div>
+<!-- Global Reading Progress -->
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-outline-variant/30">
+<div class="h-full bg-primary" id="reading-progress" style="width: 0%;"></div>
+</div>
+</header>
+<!-- Main Reader Content -->
+<main class="pt-24 pb-section-gap flex flex-col items-center">
+<!-- Manga Content Cluster -->
+<div class="max-w-[832px] w-full flex flex-col gap-gutter px-margin-mobile md:px-0">
+<!-- Page 1 (Lead Image) -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img alt="Manga sahifasi 1" class="w-full h-auto manga-card-shadow border border-outline-variant/50 transition-transform duration-700 group-hover:scale-[1.005]" src="https://lh3.googleusercontent.com/aida/AP1WRLv6DB06N6LngSr6CKZsdXgmMHtMCFI7DlRCX_4543VwwV89UTXV8e94MUIbTjR5xIeT-a0IbtTuKueRTLcrBatiS4lIY6jZCeAkwg49RYFGb-fArpLqgr_8iDISd2tjWw6zuYlDcFvnBN-SSmrbnTtVi6Zidp3DGK5NboIx2i1gE9lmJGK3hDBJV6dZ_4BK12jqkEQz9X4aOhYXgZNNS56MPTChxFww5sUNSmwgrXpA8ZM9Ap_W2JcPHtI"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10 backdrop-blur-sm">
+                    SAHIFA 01
+                </div>
+</div>
+<!-- Page 2 -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img alt="Manga sahifasi 2" class="w-full h-auto manga-card-shadow border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AP1WRLtmJtH79BV0zokFe7U7C7YI68crU7u-w5Il34c8nQNfzs1ABhqpqR5O-87cHlMhQuhQ3pNrfSjUSL-fxa7WY3eom_cWJA6r8xuskge_sp646IDzps0TaZ7vB1Slm4oW6aOrn6TOnORe0GpDH2t01EOki6oB2YzKsoKqiAbf35Os47Z3Xta132MCBTC_kF6WBSwW4Sq3ZU5Kdp8RY0kOi7qe2RZVKPfE1i9jRrCdPAf8_0mXTHmjd3mLeBY"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10">
+                    SAHIFA 02
+                </div>
+</div>
+<!-- Page 3 -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img alt="Manga sahifasi 3" class="w-full h-auto manga-card-shadow border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AP1WRLvFzXsxca1NQBasRLJ0Lp24rbfWEpER1romPZ5Q9QxT3CPPwPx0GguQ_VcLpHF08AfUILp5Y6BJHdCjpon_Niur003FxRhDNSJ2pq4B6CK4N7Y3jy_TOFvtMBDxmQ69KfTypqxT42uxPi-EJsVAGxoWF2TNbQ1OdSDo6yPWy0MypZBOP4qqHC2nSoEzPUQX61I3N9EcG5IrjVeZBMVMtID8GkOmo6vQ-wzLQZYFrBu9BF2QA6XsVqRg0y4"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10">
+                    SAHIFA 03
+                </div>
+</div>
+<!-- Page 4 -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img alt="Manga sahifasi 4" class="w-full h-auto manga-card-shadow border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AP1WRLsXWyun6CYa08BzaSgAFLHyRJtRXr150WZ8jh7tGVRMCnjyYTepNVAfemxLHkvjnD-ltrCQbmCQYY8T2pnKhfTe5xnrq_NfmFzNcvUZdbqoalILb01JiBiyKRBEqIbr82Yoo05iA4F_DoQFmTJRYdOmjeEiPKntsSe9Y4ukAk0ObOPvyEwhM24UT8osq8n4tcqlm8tyfjveP39kkdXzzZ95ThvGJEUyU_2SrD-JIRecriTX3UV3uUDyFg"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10">
+                    SAHIFA 04
+                </div>
+</div>
+<!-- Page 5 -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img alt="Manga sahifasi 5" class="w-full h-auto manga-card-shadow border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AP1WRLsmoVPlDK0UHpNqTAeZtoGmU-6y6ANKxIKES1gOlNZ3nyY35PS0qtTE0T54NiWAgWrXd6ZVhysuNZLN0HcogofhR7AZXGN7ube55uLBEF0DLw0FS9ovAEK8nMw0irkgbErEgAIj6KW_ykNdlsoVh-n4E8t7f3_FNJMB7VzrGDZqMc7YadVQwZvWZ5hqwEgC8f657a4f3M6OVvSSE0YYo6aFZWKed7k3EtJugDFQsfgP3HaQrPct62VhNNQ"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10">
+                    SAHIFA 05
+                </div>
+</div>
+<!-- Page 6 -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img alt="Manga sahifasi 6" class="w-full h-auto manga-card-shadow border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AP1WRLv3Snbq-OABG69C-mFIEJ59P-xYVXqQeV1n8f8rppWRoVcfRCqyiwVmotEMi7vGvU5xsKT4j3e5FNxzAei9jWUc4aE9X6N8kEJuOM_7_X63ORJ6lQmI5LabKLZNIMIyFged00_uV1zR-sNlt0zg8fNWPGRmOK-bkgEpjg_FNB9YP1xGgUARE9ZDpmDjhoThApzoHKhwp5Tb3C_wfiaY2s-P7uNk-5uBEnZRCqJSGHYcqThsK2emUF9uEBM"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10">
+                    SAHIFA 06
+                </div>
+</div>
+<!-- Page 7 -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img alt="Manga sahifasi 7" class="w-full h-auto manga-card-shadow border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AP1WRLuoe5KgyuyS5WHzVWCcI9Wlpx3uXLsjjR4qmxJXKDTle_Gw5L0y4AFetHAwnxyYWmSop1AafQ_lexs92t5AbDfIBnGgaNIFuVIFRCpWqfo7mEDNVDQukqwcmidMMYXuPTq0L3Xq_p6Df9kAMC3bjBmdWqdyLV0rTaSGtJ4V85VnGhM0cuWEZOHsfMwGaVK2ByX9SOFxnCLWYg3ckfQbRNT-NEFvg2PCs6xIfAEyKJULbQ_anpLpWlm9lK0"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10">
+                    SAHIFA 07
+                </div>
+</div>
+<!-- Page 8 -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img alt="Manga sahifasi 8" class="w-full h-auto manga-card-shadow border border-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AP1WRLuGggCqrvQwdBO6WsvYReQX2uVTv2UloSLI5i-0i9Z3fG17KaxWiMHX84NJgcFcr9NOSVDFi3WJCl0q648ieVHbAyFIPHJ9vZpUQ8ty6uf19fG9y2vLXOjSSu35QNPDeQgByU_Bet2ThhdkyR45R0gfp0i0yy2WpIq5eCX6Ckrp9EJ-fJSsgG_Qf361MoRd4E7bJNYKjU6Jd68i6Q_L8bMNSHnvizQrmCF_T4z-JP0SvyBD1fvPjITYGKg"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10">
+                    SAHIFA 08
+                </div>
+</div>
+<!-- Page 9 (Last) -->
+<div class="manga-page-container group relative" style="opacity: 1; transform: translateY(0px); transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);">
+<img class="w-full h-auto manga-card-shadow border border-outline-variant/50" data-alt="Obsidian Cinema-ning qorong'u fantaziya uslubidagi kinematik, yuqori aniqlikdagi vertikal manga tasviri. Sahifada kimsasiz, futuristik xarobadagi yakuniy to'qnashuv tasvirlangan. Yomg'ir neon yorug'lik nurlari orqali shiddat bilan yog'moqda. Bosh qahramon charchagan, lekin qat'iyatli, qorong'u plashda noma'lum soyaga qarshi turibdi. Kontrast chuqur qora va o'tkir oq yorqinliklar bilan juda yuqori bo'lib, bu raqamli san'at estetikasini ta'kidlaydi." src="https://lh3.googleusercontent.com/aida/AP1WRLuRcSjeV2XWCZcCLSNd4p9lOKCapFWECa4GFMk-dn3kfFEkGXQKG_DF2NNIvxUKgZd6dU4d8J3fTpxbOMAHbKsz3AX6jnnRfmJLz0CYuZbZa7Q7mTJLNLzqWzr_Ahx62RQ-n8lz8mg_-Sctxtz8DmhxI9pYmnayCvDfO82dhaA7SaFoWMXoug0qq9vwH2u-YmhO7K8JIBZmSzWgj3_DE2ZPVuHvQCJXIOtApmAt5hSzL-25ybbhwYRvUA"/>
+<div class="absolute bottom-4 right-4 bg-black/60 px-3 py-1 text-[10px] font-bold tracking-tighter text-white/50 border border-white/10">
+                    SAHIFA 09
+                </div>
+</div>
+</div>
+<!-- Navigation Footer -->
+<section class="w-full max-w-[832px] mt-section-gap px-margin-mobile md:px-0">
+<div class="flex flex-col md:flex-row gap-gutter">
+<button class="flex-1 py-6 px-8 border border-outline-variant rounded hover:bg-surface-container-high hover:border-primary transition-all duration-300 group">
+<div class="flex flex-col items-start gap-1">
+<span class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest">Orqaga</span>
+<span class="font-headline-sm text-headline-sm text-primary">Oldingi bob</span>
+</div>
+</button>
+<button class="flex-1 py-6 px-8 bg-primary text-background rounded hover:opacity-90 transition-all duration-300 transform active:scale-95">
+<div class="flex flex-col items-start gap-1">
+<span class="text-background/60 font-label-md text-label-md uppercase tracking-widest">Oldinga</span>
+<span class="font-headline-sm text-headline-sm font-extrabold">Keyingi manga</span>
+</div>
+</button>
+</div>
+<div class="mt-16 flex flex-col items-center gap-4 text-center">
+<div class="h-[1px] w-24 bg-outline-variant"></div>
+<p class="text-on-surface-variant font-body-sm text-body-sm max-w-md">
+                    Siz Neo-Kyoto Soyalari-ning 148-bobini o'qib bo'ldingiz. 
+                    Obsidian Cinema Hamjamiyatidagi muhokamaga qo'shiling.
+                </p>
+<div class="flex gap-6 mt-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" title="Forum">forum</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" title="Saralangan">favorite</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" title="Shikoyat">flag</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button (Utility) -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col gap-4">
+<button class="w-12 h-12 rounded bg-surface-container-highest border border-outline-variant flex items-center justify-center text-primary hover:border-primary transition-all shadow-xl opacity-0 translate-y-4" id="scrollToTop" title="Yuqoriga chiqish">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</div>
+<script>
+        // Progress Bar Logic
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("reading-progress").style.width = scrolled + "%";
+
+            // Scroll to top button visibility
+            const scrollBtn = document.getElementById('scrollToTop');
+            if (winScroll > 500) {
+                scrollBtn.classList.remove('opacity-0', 'translate-y-4');
+                scrollBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                scrollBtn.classList.add('opacity-0', 'translate-y-4');
+                scrollBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+        };
+
+        // Scroll to Top action
+        document.getElementById('scrollToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Simple Intersection Observer for Fade-in Effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.manga-page-container').forEach(page => {
+            page.style.opacity = "0.3";
+            page.style.transform = "translateY(20px)";
+            page.style.transition = "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
+            observer.observe(page);
+        });
+    </script>
+</body></html>

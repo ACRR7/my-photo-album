@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="uz"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Senkuro | Mukammal Qidiruv</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #000000;
+            color: #e5e2e1;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom scrollbar for pitch black theme */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444444;
+        }
+
+        .genre-chip-active {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .genre-chip-inactive {
+            border: 1px solid #333333;
+            color: #c4c7c8;
+        }
+
+        .toggle-active {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .glass-effect {
+            background: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#353434",
+                        "secondary-fixed": "#e4e2e2",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "error-container": "#93000a",
+                        "on-primary": "#2f3131",
+                        "on-secondary": "#303031",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-surface-variant": "#c4c7c8",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#636565",
+                        "surface-tint": "#c6c6c7",
+                        "primary-container": "#e2e2e2",
+                        "outline-variant": "#444748",
+                        "background": "#141313",
+                        "on-secondary-container": "#b6b5b5",
+                        "inverse-primary": "#5d5f5f",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "tertiary-fixed": "#e2e2e2",
+                        "secondary-container": "#464747",
+                        "on-primary-fixed": "#1a1c1c",
+                        "inverse-on-surface": "#313030",
+                        "surface-bright": "#3a3939",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-fixed-variant": "#454747",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "tertiary": "#ffffff",
+                        "surface": "#141313",
+                        "secondary": "#c7c6c6",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#e2e2e2",
+                        "primary": "#ffffff",
+                        "surface-container-highest": "#353434",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary": "#2f3131",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "inverse-surface": "#e5e2e1",
+                        "outline": "#8e9192",
+                        "surface-container-low": "#1c1b1b",
+                        "on-background": "#e5e2e1",
+                        "surface-dim": "#141313",
+                        "tertiary-container": "#e2e2e2",
+                        "on-primary-container": "#636565",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container": "#201f1f",
+                        "on-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "4px",
+                        "lg": "4px",
+                        "xl": "8px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "section-gap": "80px",
+                        "margin-desktop": "48px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "density-high": "8px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-sm": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "display-sm": ["Geist"],
+                        "display-lg": ["Geist"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-dim">
+<!-- Fixed Sidebar (SideNavBar Anchor) -->
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-surface-dim border-r border-outline-variant flex flex-col z-50">
+<div class="px-6 py-8">
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tighter">Senkuro</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mt-1">Premium Kirish</p>
+</div>
+<nav class="flex-1 flex flex-col mt-4">
+<!-- Catalog is active since we are on Search page -->
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-body-lg text-body-lg">Asosiy</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-primary border-l-2 border-primary font-bold bg-surface-container transition-transform scale-[1.02]" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-body-lg text-body-lg">Katalog</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">update</span>
+<span class="font-body-lg text-body-lg">Yangilanishlar</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-body-lg text-body-lg">Xatcho'plar</span>
+</a>
+</nav>
+<div class="p-6 flex items-center gap-3 border-t border-outline-variant">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img alt="Foydalanuvchi profili" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvo9nX9vS5kJCKMoyh5NM8X-GL9004kCLJFo31Mkk6-Z3KT_9kr97ZwksB3IONd4Pb3hQeXSVGKAgIQe55wcawuZ5t9foKEaZtqUogojrnA7eRhBT0DFaAZnCLD2hOuvAkmIqQ9NqIzdBiGjDw0b1XpnqynDmDG0uvMA5bvRsUkbZxZBCdV3qzbNAlqqV8XgD_Ey024V5K4jgcDLApzUq88_sCTlVA53Gmw-6xTd7pkMYNUBuOONdguVZ0MwEP8z6l524MKTC73fE"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Explorer</p>
+<p class="text-[10px] text-on-surface-variant">Standard Daraja</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[240px] min-h-screen flex flex-col p-margin-desktop">
+<!-- Header / Search Bar Anchor -->
+<header class="mb-section-gap">
+<div class="max-w-4xl mx-auto relative group">
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-[#0D0D0D] border border-outline-variant focus:border-primary focus:ring-0 text-primary font-headline-sm text-headline-sm py-5 pl-14 pr-6 rounded-lg transition-all outline-none" placeholder="Mukammal Qidiruv" type="text"/>
+</div>
+</header>
+<!-- Search Engine Interface -->
+<section class="max-w-4xl mx-auto w-full flex-1 space-y-12 pb-32">
+<!-- Genre Selection -->
+<div>
+<h3 class="text-on-surface-variant font-label-md text-label-md mb-6 uppercase tracking-widest">Janrlar</h3>
+<div class="flex flex-wrap gap-3">
+<button class="genre-chip-active px-6 py-3 rounded text-body-lg font-bold transition-all active:scale-95">Ekshn</button>
+<button class="genre-chip-inactive px-6 py-3 rounded text-body-lg hover:border-primary transition-all">Romantika</button>
+<button class="genre-chip-active px-6 py-3 rounded text-body-lg font-bold transition-all active:scale-95">Fentezi</button>
+<button class="genre-chip-inactive px-6 py-3 rounded text-body-lg hover:border-primary transition-all">Drama</button>
+<button class="genre-chip-inactive px-6 py-3 rounded text-body-lg hover:border-primary transition-all">Psixologiya</button>
+<button class="genre-chip-inactive px-6 py-3 rounded text-body-lg hover:border-primary transition-all">Komediya</button>
+<button class="genre-chip-inactive px-6 py-3 rounded text-body-lg hover:border-primary transition-all">Daxshatli</button>
+<button class="genre-chip-inactive px-6 py-3 rounded text-body-lg hover:border-primary transition-all">Triller</button>
+<button class="genre-chip-inactive px-6 py-3 rounded text-body-lg hover:border-primary transition-all">Detektiv</button>
+<button class="genre-chip-inactive px-6 py-3 rounded text-body-lg hover:border-primary transition-all">Sarguzasht</button>
+</div>
+</div>
+<!-- Double Grid Filters -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<!-- Status -->
+<div class="space-y-6">
+<h3 class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest">Holati</h3>
+<div class="flex bg-[#0D0D0D] p-1 border border-outline-variant rounded">
+<button class="flex-1 toggle-active py-3 font-body-lg rounded transition-all">Davom etmoqda</button>
+<button class="flex-1 text-on-surface-variant hover:text-primary py-3 font-body-lg transition-all">Yakunlangan</button>
+</div>
+</div>
+<!-- Sort By -->
+<div class="space-y-6">
+<h3 class="text-on-surface-variant font-label-md text-label-md uppercase tracking-widest">Saralash</h3>
+<div class="flex bg-[#0D0D0D] p-1 border border-outline-variant rounded">
+<button class="flex-1 text-on-surface-variant hover:text-primary py-3 font-body-lg transition-all">Ommaboplik</button>
+<button class="flex-1 toggle-active py-3 font-body-lg rounded transition-all">Yangilanishlar</button>
+<button class="flex-1 text-on-surface-variant hover:text-primary py-3 font-body-lg transition-all">Reyting</button>
+</div>
+</div>
+</div>
+<!-- Visualization / Subtle Content Tease (Asymmetric Bento) -->
+<div class="pt-8 grid grid-cols-12 gap-gutter opacity-30 pointer-events-none select-none">
+<div class="col-span-4 aspect-[2/3] bg-surface-container-high rounded overflow-hidden">
+<img class="w-full h-full object-cover grayscale" data-alt="A cinematic, high-contrast manga cover illustration featuring a mysterious character standing in a dark, atmospheric city alleyway. The scene is rendered in deep blacks and sharp whites, echoing the obsidian cinema aesthetic. Soft rim lighting highlights the character's silhouette, while subtle textures and grain provide a gritty, premium comic book feel. The mood is intense and noir-inspired." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-mZggqnJ62dAoGkagdeCtmckREDx4dtkvjjtZ4ZxxxKzrmVEqPHFmAe6mGPWNEKRgxJ_26wig_R925QdhX4yAzzXR-Tc-J93XUosqOM9vqPHvIqSzRNkbgnJctp4WWpWt7X2btbhukx55uO60YbtTf-0CeCyy9-rn6kfZ_EF8IjocEu93DkHAClsksPVkkxgPm2EyYX9WS6eLYnC-wxTZmfUjyg9j3f2FS7pxHJrKMnU_fxlgtoE-7TPZzlansf1Fccbx9xN0_UY"/>
+</div>
+<div class="col-span-4 aspect-[2/3] bg-surface-container-high rounded overflow-hidden mt-8">
+<img class="w-full h-full object-cover grayscale" data-alt="Abstract dark landscape with sharp, geometric mountain silhouettes against a starless, obsidian sky. The lighting is low-key with high-contrast white glints on the edges of the jagged terrain. The overall style is minimalist and ultra-modern, emphasizing negative space and a pitch-black foundation. A sense of vast, cold solitude permeates the high-fidelity digital artwork." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ25Qb_OE-YjicwwXxST5vcTdqQO2AWD-jq-tzFqJJIKdCQPmuWMqrITqpRKki1fBqeSFcJUroUboJgYdXBilfEl_2ARdztBlLGlzoAgQ7q6hM3XvF8-7cHQLvpw3IXQGYxXTiPLoK6LOoj4nfzhdM3q6Bau4sPKRqxX0Q7gQCykvvltgjZ7llNUA_UKsgTFi6K6VmYSY66hAT6V4uqhXnnoDgItmT5FBZ7xETAHeH6w1sWQ1fmIctm6T1pA-uLcDD1yS3GEul_38"/>
+</div>
+<div class="col-span-4 aspect-[2/3] bg-surface-container-high rounded overflow-hidden">
+<img class="w-full h-full object-cover grayscale" data-alt="A close-up of a high-tech digital interface displaying complex data patterns and manga panel layouts in a monochromatic white and deep black palette. The design is sleek, utilitarian, and technologically advanced, with thin 1px lines and precise typography. The lighting is cold and clinical, evoking a premium digital sanctuary for enthusiasts of technical precision and narrative flow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACoCTcZPK005B9AJXxR9QaCU82zV9jKWNLiGjEA-GebxMiSdfoPcw9V5FMixhLKgTtNFtxi-BeSud8K6eos7pm43zUdeIsPrxS1bAywKdxsoUA8fuQfH5qeS9vrh1stp0-UWaJjvGRwuvD4cLCZt7JS-cDY9fKGfFJk0xRAMI13RFLZY__qByk2CLtiwjmer-q5IgK1zHYfw4ukiQlsjvnavVQWzfycMqQmIRjGOaAGFO701MCrQV216cnAGV--Q1gNH42gYUPBBE"/>
+</div>
+</div>
+</section>
+<!-- Floating Action Bar -->
+<div class="fixed bottom-0 right-0 left-[240px] p-margin-desktop glass-effect border-t border-outline-variant flex justify-end gap-4 z-40">
+<button class="px-8 py-3 border border-outline-variant text-primary font-bold hover:bg-surface-container-high transition-all rounded active:scale-95">
+                Tozalash
+            </button>
+<button class="px-12 py-3 bg-white text-black font-extrabold hover:bg-opacity-90 transition-all rounded shadow-[0_0_20px_rgba(255,255,255,0.2)] active:scale-95">
+                Qo'llash
+            </button>
+</div>
+</main>
+<!-- Footer Component Anchor -->
+<footer class="ml-[240px] py-12 flex flex-col items-center gap-4 bg-surface-dim border-t border-outline-variant">
+<p class="font-label-md text-label-md text-primary tracking-widest uppercase">Senkuro</p>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary underline font-body-sm text-body-sm transition-all" href="#">Maxfiylik Siyosati</a>
+<a class="text-on-surface-variant hover:text-primary underline font-body-sm text-body-sm transition-all" href="#">Foydalanish Shartlari</a>
+<a class="text-on-surface-variant hover:text-primary underline font-body-sm text-body-sm transition-all" href="#">Yordam Markazi</a>
+</div>
+<p class="text-on-surface-variant font-body-sm text-body-sm opacity-50 mt-4">© 2024 MangaReader Premium</p>
+</footer>
+<script>
+        // Micro-interactions for chips
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (this.classList.contains('genre-chip-inactive') || this.classList.contains('genre-chip-active')) {
+                    this.classList.toggle('genre-chip-active');
+                    this.classList.toggle('genre-chip-inactive');
+                    if (this.classList.contains('genre-chip-active')) {
+                        this.style.fontWeight = '700';
+                    } else {
+                        this.style.fontWeight = '400';
+                    }
+                }
+            });
+        });
+
+        // Toggle button logic
+        const toggleContainers = document.querySelectorAll('.flex.bg-\\[\\#0D0D0D\\]');
+        toggleContainers.forEach(container => {
+            const buttons = container.querySelectorAll('button');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    buttons.forEach(b => b.classList.remove('toggle-active'));
+                    buttons.forEach(b => b.classList.add('text-on-surface-variant'));
+                    btn.classList.add('toggle-active');
+                    btn.classList.remove('text-on-surface-variant');
+                });
+            });
+        });
+    </script>
+</body></html>

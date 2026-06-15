@@ -1,0 +1,466 @@
+<html class="dark" lang="uz" style=""><head></head><body class="bg-surface-container-lowest text-white font-sans antialiased">```html
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MangaPremium - Manga kutubxonasi</title>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts for Geist (simulated with Inter/sans-serif) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- BEGIN: Custom Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'surface': '#141313',
+            'surface-dim': '#141313',
+            'surface-bright': '#3a3939',
+            'surface-container-lowest': '#0e0e0e',
+            'surface-container-low': '#1c1b1b',
+            'surface-container-high': '#2b2a2a',
+            'surface-container-highest': '#333232',
+            'primary': '#ffffff',
+            'on-surface-variant': '#a0a0a0',
+            'outline-variant': '#2d2d2d',
+            'rating-green': '#4caf50'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          spacing: {
+            'density-high': '1rem',
+            'margin-desktop': '2rem',
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Custom Configuration -->
+<style data-purpose="scrollbar">
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e0e;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #333232;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #444343;
+    }
+  </style>
+<style data-purpose="interactions">
+    .manga-card {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    }
+    .manga-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    .manga-poster-overlay {
+      background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+    }
+  </style>
+<link class="" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,FILL@0..1&amp;display=swap" rel="stylesheet"/>
+<!-- BEGIN: SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-16 hover:w-60 transition-all duration-300 z-50 bg-surface-container-low border-r border-outline-variant flex flex-col items-center py-4 overflow-hidden group" data-purpose="main-navigation" id="side-nav">
+<!-- Brand Logo Area -->
+<div class="mb-8 flex items-center px-4 w-full">
+<div class="w-8 h-8 bg-primary rounded flex-shrink-0 flex items-center justify-center">
+<span class="text-black font-bold text-lg">S</span>
+</div>
+<div class="ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap overflow-hidden">
+<p class="font-bold text-lg text-primary">MangaPremium</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Premium Reading</p>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="flex-1 w-full space-y-4 px-2">
+<a class="flex items-center p-2 rounded-md transition-all duration-200 hover:bg-surface-container-highest text-on-surface-variant hover:text-primary group/item" href="#">
+<svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="ml-4 opacity-0 group-hover:opacity-100 transition-opacity">Asosiy</span>
+</a>
+<a class="flex items-center p-2 rounded-md border-l-2 border-primary bg-surface-container-high text-primary group/item" href="#">
+<svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="ml-4 opacity-0 group-hover:opacity-100 transition-opacity">Katalog</span>
+</a>
+<a class="flex items-center p-2 rounded-md transition-all duration-200 hover:bg-surface-container-highest text-on-surface-variant hover:text-primary group/item" href="#">
+<span class="material-symbols-outlined w-6 h-6 flex-shrink-0 text-on-surface-variant group-hover/item:text-primary transition-colors">update</span>
+<span class="ml-4 opacity-0 group-hover:opacity-100 transition-opacity">Yangi</span>
+</a>
+<a class="flex items-center p-2 rounded-md transition-all duration-200 hover:bg-surface-container-highest text-on-surface-variant hover:text-primary group/item" href="#">
+<svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="ml-4 opacity-0 group-hover:opacity-100 transition-opacity">Xatchoplar</span>
+</a>
+</div>
+<!-- User Profile Avatar -->
+<div class="mt-auto mb-4 px-4 w-full flex items-center">
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant flex-shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvbZeouzt7NDqhD6BnWXT6XrhK42bJwn_Gl76OkqDiPrmPlVRKfzpJHgCd21TJ7cPG607L_2U39CBzvZpXYVihiSW8nhemfrdaKYsW0RR2ApBep8N-ef2cTbXvGETAkkmanPahJsQBOYhRjbrUYzaEOot7h4IrDfNBG8XEiir2pS8CTSjL9klfnpoPBfcXcQDA4PrKNRxpB1aAOEJ8rlMpMXdbcfOQzDl0om9WOCAzFu2_JB8nS2L6Xan0VALF2ekPijC46JAQgdk"/>
+<span class="ml-4 opacity-0 group-hover:opacity-100 transition-opacity text-sm truncate font-medium">Profil</span>
+</div>
+</nav>
+<!-- END: SideNavBar -->
+<!-- BEGIN: TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-64px)] h-16 z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center px-8 border-b border-outline-variant" data-purpose="header">
+<div class="flex items-center space-x-6">
+<h1 class="font-display text-2xl font-bold tracking-tight text-primary">SENKURO</h1>
+<nav class="hidden md:flex space-x-4">
+<a class="text-sm font-medium uppercase tracking-widest text-primary font-bold" href="#">Katalog</a>
+<a class="text-sm font-medium uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Ekotizim</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<button aria-label="Dark Mode Toggle" class="p-2 hover:bg-surface-container-high rounded-full transition-transform active:scale-90">
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="px-6 py-2 bg-primary text-black font-bold text-sm rounded hover:scale-105 active:scale-95 transition-transform">
+        Kirish
+      </button>
+</div>
+</header>
+<!-- END: TopAppBar -->
+<!-- BEGIN: MainContent -->
+<main class="ml-16 pt-20 px-8 pb-12 flex flex-col lg:flex-row gap-8">
+<!-- BEGIN: GridContainer -->
+<div class="flex-grow">
+<div class="mb-8">
+<h2 class="text-3xl font-bold mb-4">Manga kutubxonasi</h2>
+<div class="flex space-x-4">
+<button class="bg-surface-container-low px-4 py-2 rounded-md text-sm border border-outline-variant hover:bg-surface-container-high flex items-center">
+            Ommabopligi bo'yicha
+            <svg class="ml-2 w-4 h-4" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path></svg>
+</button>
+<button class="bg-surface-container-low px-4 py-2 rounded-md text-sm border border-outline-variant hover:bg-surface-container-high flex items-center">
+            Avval yangilari
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Manga Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6" data-purpose="manga-cards-grid" id="manga-grid">
+<!-- Card 1 -->
+<div class="manga-card relative group cursor-pointer" data-purpose="manga-card">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Manga Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUw-Z8PYXJtStCfJXUCL4UWWNCL-zoBhtptgXqHd-t7VtLIHGS3NCI55Xo9lDD5_eaYdRiBD_gYySBdQJQc8zkP5EFnw9N-1leAg7Zmp1RGLtSs_CUWoapTNFn9RcL_-7srgvSC9RtdZnYXCQUBAhPQriivxslvTnpTchUKFvWDdKIhq4O6bCS8LdRY53obiFHKAQSsy_mg9CQsThfp2BB-l5PNqVc2Eig8nsVwMh3TlfcXVo4MdpkEHY9pmBhhwNuUBWCSfg_0k0"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manhva</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 9.13</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Manga 1</p>
+</div>
+<!-- Card 2 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Manga Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVcRHFDgkPLClWCFYUMP4__Pt5DmJgkdb5cKaK0443V5xistpVbIpjTmMo8tkwQ6U5BKYGSnvnhQe8HoCsEy2Kx1jInhov9q2KAyvaRD_IythxU1KAKIHhpdJOJOmL17IHQT_G_-fZNwh8otebLYoecWwAPYsUZv7Lq7YAR0fGr9vaCIOBJeqABeIe1UAMP6IsYKDvtic7IbCkEmYxTbbErdXHXlmZoLBaSFINs8Fl5blu9LbdhBNvdCwZZBn6asmu2X5KfaEvVdA"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.70</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary">Manga 2</p>
+</div>
+<!-- Card 3 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Manga Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQwA9JjWGSl19n12p4qWR78xM0QHHEvr6cJpj7VF21D8_oBzXBXaOOD28-JJPqTJ4LO1RcediMId6x4UcydZXzKdonXBBfSXEYJq-8bjKyIQQNoOyq-u7-7uNLmu83eoDDIC6K6Dfjv3auEYF8RddeDlr_jvV5Kgh9qSKXIWXViiEc93K4KivglKu3JNKx24OkHNZlhUpVhiptUXBrGeIG-SYGAgKqNrubRrmkIvFvkhpVXtR5wcfMtZdVyCgcnYFdrigijHKXUl0"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.95</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary">Manga 3</p>
+</div>
+<!-- Card 4 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Седьмой принц меняет свою судьбу" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1cBzVyWmZOx-jy_CLtqz28QJ7graJ6XxHM7yo7vQp9xp05HeAvFcXolIYqSZdUe211Vkq0STYPJ68g_-Lt3GB4O5IVtouLe4GyClvevPFPWwJ4IDJYxLF0-dnFs19cf24gdSpi3gZDBL38lEQhqJjKbVBkZljb46Gj0eP4Y8fHYkZGq__8LdmXCSlTXBayJ5sLo1LPicDqEkbRr6hK8toBV6skKGAnywiignL_074y4LYUNVMgeaUjBz17hCZsyNjxT9CPX-TBZg"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.33</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Седьмой принц меняет свою судьбу</p>
+</div>
+<!-- Card 5 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Истребитель из иного мира" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPcpPbq7nDNiKA60aQ0CegzWBGtwErXGd8q8aP0pbA-4NYb4Rdsc74RVodNM7lDd8gRU-Z_VqGzKt4s7JBZeGBOQsnXjsbW5QGVrzYBn-gujzyC_Bx6m0wt4JGWwuQwxIez1QnbZJm0z8esS5Nrc31K5xg52hsQu0rb3j4dMM-DNU3jPtFIHiIn_d5hKNeFENe31vvCcTuhwuDlZ8hBOSkF9-3z3MqoqpT844DoVeIWl9Qespf1gK8igp8nWG5nl-yBHCq07J16qw"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.50</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Истребитель из иного мира</p>
+</div>
+<!-- Card 6 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Я попал в мир неизвестной мне манги" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqPOwEcaU61grZ8rggkpg8rZ8-oz_ESdwyKcrqyVJu9zkRVCyjgrxYJYSh_W6tpAZNvhzvWXvBR_r_CvbiVUceQBC3M0auIy0VsJrtPEos4Sp8lc3qgtl7kQgu3iIOZItLaGaU97Oj3Jy24YSCRPNphQx2kJ1_i31g1DdR6AbXdJmXzZ5dw0auKNfAyAWijXJ73itoJV6PZeu0IkQQ61h0YBQ-kxu5Xc9rbbnqSuBGosgVJTyvDjY_21LWJdSkIAbmTCUpkejlq3E"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.80</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Я попал в мир неизвестной мне манги</p>
+</div>
+<!-- Card 7 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Пробуждение бесполезного навыка" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf5w629G1uqrtl3pY6yVOrZU_e0fGCa54-OPYgE1N9MD0o_ZCdjhP5fJN6Ch-By92dlssMs-UmnvW7i3mT5ks_qEBUOVejswKsjoJGutaf39BcpYhOw3YkDc_3gfWzYjk0dVFaR64Y3eN5JM9eitEbPyjtGU8xadP4Ukce4py_G8FfMI8tKoFxmVL83kx3IZB9tN_lkyM1FpQjt13yune4nCD_dGigy8V5x6CPeFT2vrL4DMhCf_DnZCptfTkHbxtB-szccrUbx58"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.06</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Пробуждение бесполезного навыка</p>
+</div>
+<!-- Card 8 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Я стал сильнейшим после медосмотра" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY5UhZxII8J7h63w32DcYRX0EuwVGJSoHC9kaypq6Pf3iJuzdEEOcqvF5fioybrlJnv9nTJ4jPnZWWG1HvdcGPRct_blgloP2BIrHRhJxrdIBWzl_E2l0bMAhQeEgPewK98zfRSgCtZREOMDV5lBywoS6_Q-tiFjs8a3Miq-Vf9op_ywaRIAC-TB0x-F2CC1VXy-HrZj6n_i4UXosYWyQivVHFeWOYds9L4_bd2j71Tegu2Bcg1vC-OHfSNfaSEyMsCJtMPptmVDA"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.17</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Я стал сильнейшим после медосмотра</p>
+</div>
+<!-- Card 9 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Условие проживания: обязательно поладь..." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxTFZjfWyMNu22kDzeL-iDbUQrmg9INbSJlooktUlfcu4it1TTBIBDsNDIFg9qtD0Ag_pUTOpOjBQLbB4TODZ5CrGE0zx-vT5HnmhJI1XCGTFINRarbrGy3YZbF975xBrLxd10tA4JQqvBH0CRZC4xHzKenVbCsipmdHGvGFyoEwvnYYlPbUBwttxqaJA7eIVOYQcOFHWZGksTr3Z9n8BLMLplnCsten7Z1lNwQXiZAQgL1qadt07ZLw1v2whkq1e8RYVv-qFESeY"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.48</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Условие проживания: обязательно поладь...</p>
+</div>
+<!-- Card 10 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Сильнейшая служанка Культа Небесного..." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOHnyfiCATMC9XcT_almsomo0RdEAaxlswoaxtbMdVQ6mz2SG13goZkbpzpWYcmZYAojMRUk7_IBEjpR4YXOUD7M0q3yfsfKp9SXwfd1eA4dcVRR_kVuXG7mr9X4ts-4tXRt5cZpZxIVNom05UKxZmGXyfCLuiZsYYmoGLcvJPubHbvmbye0w-roBL1XqjlO-kLeiVUYWpcAexxqEHHL3ril9je9qtOiipHJksNaybqLsASkAMd1URhBiptwcO32KrqRYgOfOBNFQ"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.97</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Сильнейшая служанка Культа Небесного...</p>
+</div>
+<!-- Card 11 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Сын извращенца-гипнотизёра" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBITv3HPZWWZrvX1uHnaH2OntxxaPkb4dUSG-e7awj0dITZMEbqE25bXU7eKRMyZaJhnL3ibhuiWMrbwJZN_l3z8NaWQQAGHCTwZvXHV9nnEVUksXXf7RxhcD2-bGe8TqazYIVhxJaEIwsaiIZquigSuHQYXJDwyw-yeh6HOmw9jsowNf8UWR8n3x3vGfbHsOsPnPK_MgVQxZ5oy41RiMRve6ZBCz6v8IrvdEXQna5d0juIg8wU4zGTKF6JvsqiPlsjafsn66DQY4o"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.33</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Сын извращенца-гипнотизёра</p>
+</div>
+<!-- Card 12 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Кохай, что ведёт себя как полная задница" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATCXiNZBmVglPYnZm4gmC2SL97OdLrO-pyhS941qAP5koKWhEqnrGEd1faXCjyZMK5PsDE2n_DkUVXBAsI4KaxTuYuARxz9EI9D1mPngxdU5V2MQ7nq4HCaov8g0TohLo7hOGGDzk2jxgItND7JC-8in0QPp_foTTP-C04nKqdjzRnsikw9HUW63fKzzfOxgK2XzEoWB4nqTl3eohP5pY-2fze6aNSG5Mii6FlpS1eiqRENmFVtTLHRQ36wdJzgksUnGyg-PoYGgI"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.07</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Кохай, что ведёт себя как полная задница</p>
+</div>
+<!-- Card 13 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Другой я - Психопат" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW1x1vp6SZxSdgOCfdx9rr9QvjT4HPe5dWXGjft6matXSJ-Y9vB-vK-sv-TCo3J8-VFJd_4uKXY1BVs2UWN2iBADeyF2Eh7LdxHaDqWiqjjIN7h7iKRaQ95e9kTiHWxRnBBXSqhlTSCfzFpGg5IeL20wwh8031Nx9s3FxIFCuQJ1Z-er1plMZ29lfFHZlb5mIfMP8l7gGpC2IX26xsVFy7dYfmxdEhahWTkSALBwLzFUAkdIkY8QRz9RTWW40DHMRHv5K9XfB1ymI"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.80</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Другой я - Психопат</p>
+</div>
+<!-- Card 14 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Казалось, перерожусь второстепенным..." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnuwkM93HsDONlCGWiexhEAz3LV1NNnJAdljmroKowebkKduD2SVBYAbZ4t3K5d8EW57EtIQ82MffHU3oQiyqfFTeQz9ACP7nPStSW05lyFTL2WpESjpzEnYwLrLXdIXBcd2IEiVxa40Nmfalo_UzART9JVA8DTKu2vZJ5q5RVw_nJMPe7tI-O7wQkTMabJb_G0YatJZNLipzX060oGwEJ__IYolCUc8C_pyjVXAhVfKnkgq-J7_c43i60aBeVhAHds1WwmLEoEXY"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.64</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Казалось, перерожусь второстепенным...</p>
+</div>
+<!-- Card 15 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Ты и вправду гений" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaVFLE5NGUz3brRGUWkUQCEbI3eLIrRfVJlmBHKurBNsjfX35CbGCdTE_1MJ0txUF_QRNN7nlBOYFXByg1pTvNhIyoaECHFGiw9bA8VelW2YEf7dyyRfQhUSYmlTQwjtJVyHbZ6lsx3XV5LgfwFSymldXTURrdfZHgF54pCak0-5Q_CbnlA9wz_I9dur2lpPKcsIUHYDAw38DfqseeMytVQ5EYzsgxCQ7QJ0QfFKL0EDoEsblQnTMbPG4OwrSxxRVrS-kqhgfIPCc"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.58</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Ты и вправду гений</p>
+</div>
+<!-- Card 16 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Я стал учителем слабейшей Королевы..." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjnzDA2Q7QffAOOsqBbpSThHuaegqfBxo13o7SyAZI5PocKQ4qAnxfwDAYe_bTnRWolMwgJWv0qmvx_8mNJjDyNt1HeLSaXd8U5d-bvfmYesus10AVATVvL8J4Ueb2_fCIXB_J6tqmk8X8m4MtiXVVQmgmqxu1XBZ2D-l5mO5zvEMKsolsiuD9e4DVBzZKoTJw5DvfK1RiLBd5sjpygPTY9MUMUY6qM97dF4mDTfDbiMlEWDGHmwrrfgruinNNEWQ3UVpLzUqF4FM"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.33</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Я стал учителем слабейшей Королевы...</p>
+</div>
+<!-- Card 17 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Я стал Мастером копья в Академии" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4rsgPUx3Zh_sg6Lj9VIvBDR739wcfVBb04LCxGqimA8TMEMHan46kvRz5Kx4cl3tlMDiIsDpOuIcIQwBjAxsP7hog30xVOywatUYLDbg13i3koe5NpsUoE5rc8ZlBhCeUGhac1ju0Jh2NDMEMbzBf8F8Fw84UgPGW4wtKJhh0wyAjkb1acWaMSbRsHkkxp6TUjRGr8KGamcfUN0gHJOtK-tFfyln2xaJiL0HWxqbMr-c0CYk-_GxsigHD-lzG0QKRE7gk9MpaLX0"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.37</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Я стал Мастером копья в Академии</p>
+</div>
+<!-- Card 18 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Крафтер, сорвавший куш" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3PpSD1s_-mGTldyloarTlSes2hwtvzE_-60rXmbGEASZiA4VvImwIWlRmrTYRnLbYymrZE28u4yp3MLIBuG7Uy1BP9F7oMpbQTnsoZulbUkLB45FSh_ufidJEqCVHa4-1PyE1408jRqI2UoOfVtNezJzQeZFp_Gl5dWezLu_QjYabpZSOMN0aY2UM4l79ZECXIRIyyv2O1pV4yEtxts3BeAO5kYMrCCxFIsWbu3v5dtiOaER3lGHoe20MHIOBc7gjnB0Q3buzfjs"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.52</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Крафтер, сорвавший куш</p>
+</div>
+<!-- Card 19 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="С помощью знаний из временного мира..." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiJvPKUaHeLt_jmPBe7MOg5Dg9WEi_pJ2kpYbBXQ6RQ0a-ozy_Zy4t3gIZVZrNLJQ-HtNSy-pF1kXJQF5TMLCxnb87Ksgyc35q8-O0xGwl4YJGe7pOkSlhcwi8aTz5oHUrCXwb6VPZUFfUZBxtidkAb2-snb4SY4QAeWva-viSXtFIvvFrnFXhE2M96vUWfDIJ_OSbwI4z3C1k3v0Ul8YNKcxlaHeJrYsYyUvzHXeUQYhuNS2tqixKSRmvUXy0ixGyD0tF2E0y14o"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.29</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">С помощью знаний из временного мира...</p>
+</div>
+<!-- Card 20 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Как уйти на покой, если ты сильнейший..." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP7sIB78kqCy6aUzvE85NhVGvBvBww0qFHs4ub3LvB8TwabjGyntpSxbvgHLe7f4Ly28DpDq-sI9LrmkyR2IzH4rjyZobXEyOe5HgB5gCcBPW9HIjTMcLbvNixe5yv9MITOV0w_f5ATXNDW14MIDl0BIHflJrT_BUa0wj9cbgJeY3oNXaJDT2qth7PrGmg4TLwmmrTnf7IlNIwv4ILjnTSAXHbz4jjmdnGVhw4ZL1Q59w3YFINEVfJJYIYn02QMC6jW6y4S_Op168"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.64</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Как уйти на покой, если ты сильнейший...</p>
+</div>
+<!-- Card 21 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Manga 21" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADeU-VTGZSHGkLMpXK5Z-0knnZqMZnhIC3QsLQArunvtqtB8gQtm2xrBpDJsGeT7h1Vqomt3eUfpaIM4-yu5u2HkR6KmxNLeQZJAX4GQRwGiAlDeRZxB1VyFlqc5KI7rO_DGUSGVx5PtlmR00qmJMFK0tahMEoJQCQqB1_vzVh1QZL3ybUNOy4Hd641yFbfEdMd1Vnrz7ZXU2BNTEkZUr8ZXgVNsDc4ecI9rXQbkuihRzN0ZKYFvWxaZiLawRVHlnsxgUR9aezpHU"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.33</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Manga 21</p>
+</div>
+<!-- Card 22 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Manga 22" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbn2yi-CtNEwHI-h6DvonDnibF7UgIFtLNIfUyTjyy4sOEJHffHfk1TbZTHfPeE0i4zq_5kheayzq0V0yqzD9oXz3tfvNyblJTqlwyx4lq3G4x06eH0r0oPEc9ieELl-2SEVqME9uHqWhc3m5_XDqXFCEQGEvVQhCIK6tzoprSjYftP9X7ZVN4Ay7koGR1ajU1qMAznoEm6fEWhsvt0Tk9koWy8VSjey0rWIsqvLXu7uKZONY-xVF-TIQc2koGpNTq7MqhbOHrihA"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 7.50</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Manga 22</p>
+</div>
+<!-- Card 23 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Manga 23" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmMSc8dmLbxhLhsJW_3Iyxz4u1J-CPhE5Iclo-snSzhgq378itrjvg22k0HvsTzMM4WdIGBDKDMPWbb-6XGPcGmiR8qySYm0kaLINz2uKW9fnoH6PZj4jWkSz7nuLI36W7kE6duVeDqWWr6J-oLWuuMaWvDX2Ssa9RSO4cFusEJ8ziBjCIyQj1hGqQjRFvyXtwvjp6Q1biW9zlobz4DyqsWE6AnKjsswO0f3Nt2QpOTLxTCctVBFLJdt9DdS3rneQoJYk1-LyFBTc"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.80</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Manga 23</p>
+</div>
+<!-- Card 24 -->
+<div class="manga-card relative group cursor-pointer">
+<div class="aspect-[2/3] rounded-lg overflow-hidden relative bg-surface-container-high">
+<img alt="Manga 24" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3UJKVMulSdBROWLywKPkmc_ZeuohhF0p-kTt0T8qG8HodUXqjTWfObKn1m0hxib0h4Fh_DI9gge0ydvvVItYpwP_0hBOkWd8spKcmB8C4rlw5MqVoxGJ5LIVnbMnokqwCX-i0TcNy1Cga14YgwbA9Qeol36ARyGIJapIVkmhXcNcCJNxyG-fGEtdLYp61tDMe3ISqRzLeNsimSzNXgY-32CpGr7eZ07ywxn8DPSctGsV49dgZOPy4R4yXV5Li7nmuCWQjUvS55GI"/>
+<div class="manga-poster-overlay absolute inset-0"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-2">
+<span class="bg-black/60 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-tight">Manga</span>
+<span class="bg-rating-green text-black px-1.5 py-0.5 rounded text-[10px] font-bold">★ 8.10</span>
+</div>
+</div>
+<p class="mt-2 text-sm font-medium line-clamp-2 hover:text-primary transition-colors">Manga 24</p>
+</div>
+</div>
+<!-- Scroll Indicator / Loading Spinner -->
+<div class="mt-16 flex flex-col items-center justify-center space-y-4 opacity-50" data-purpose="infinite-scroll-indicator">
+<div class="w-8 h-8 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+<p class="text-xs uppercase tracking-widest font-medium">YANGI ASARLAR YUKLANMOQDA...</p>
+</div>
+</div>
+<!-- END: GridContainer -->
+<!-- BEGIN: FilterSidebar -->
+<aside class="w-full lg:w-80 flex-shrink-0" data-purpose="filter-panel">
+<div class="sticky top-24 bg-surface-container-low rounded-xl border border-outline-variant p-6 space-y-8 max-h-[calc(100vh-120px)] overflow-y-auto custom-scrollbar">
+<!-- Search & Header -->
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<h3 class="text-lg font-bold">Filtrlar</h3>
+<button class="text-xs font-semibold text-on-surface-variant hover:text-primary flex items-center uppercase tracking-wide">
+<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              TOZALASH
+            </button>
+</div>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3">
+<svg class="w-5 h-5 text-on-surface-variant" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<input class="w-full bg-surface-container-lowest border-outline-variant rounded-md pl-10 text-sm focus:ring-primary focus:border-primary" placeholder="Leyblarni qidirish" type="text"/>
+</div>
+</div>
+<!-- Filter Sections -->
+<div class="space-y-6">
+<!-- Section: Main Cast -->
+<div data-purpose="filter-section">
+<div class="flex justify-between items-center mb-3">
+<h4 class="text-sm font-bold uppercase tracking-wider text-on-surface-variant">ASOSIY TARKIB</h4>
+<button class="p-1 hover:bg-surface-container-high rounded"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"></svg></button></div></div></div></div></aside></main></body></html>

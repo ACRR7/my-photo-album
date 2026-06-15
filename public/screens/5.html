@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="uz"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SENKURO - Yangilanishlar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0e0e0e",
+                        "error": "#ffb4ab",
+                        "tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "inverse-surface": "#e5e2e1",
+                        "on-background": "#e5e2e1",
+                        "surface-dim": "#141313",
+                        "primary": "#ffffff",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#2f3131",
+                        "secondary-fixed": "#e4e2e2",
+                        "on-tertiary": "#2f3131",
+                        "inverse-primary": "#5d5f5f",
+                        "surface-container": "#201f1f",
+                        "surface-bright": "#3a3939",
+                        "on-secondary-container": "#b6b5b5",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "primary-container": "#e2e2e2",
+                        "surface-container-highest": "#353434",
+                        "outline": "#8e9192",
+                        "secondary": "#c7c6c6",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#e2e2e2",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary": "#303031",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-container": "#636565",
+                        "surface-variant": "#353434",
+                        "secondary-container": "#464747",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-primary-fixed": "#1a1c1c",
+                        "outline-variant": "#444748",
+                        "background": "#000000",
+                        "surface": "#000000",
+                        "surface-tint": "#c6c6c7",
+                        "on-primary-container": "#636565"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "section-gap": "80px",
+                        "margin-desktop": "48px",
+                        "margin-mobile": "16px",
+                        "density-high": "8px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "display-sm": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "headline-sm": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                        "display-sm": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e5e2e1;
+            font-family: 'Geist', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #333333;
+            border-bottom-color: #ffffff;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 0.8s linear infinite;
+        }
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .safe-pb {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .timeline-header {
+            writing-mode: vertical-lr;
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-outline-variant bg-surface flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform cursor-pointer">menu</span>
+<h1 class="font-headline-lg text-headline-lg font-extrabold tracking-tighter text-primary">YANGILANISHLAR</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity active:scale-95 transition-transform cursor-pointer" title="Qidirish">search</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-20 pb-32 px-margin-mobile max-w-md mx-auto w-full">
+<!-- Timeline Section: BUGUN -->
+<section class="flex gap-4 mb-10">
+<!-- Left Column: Sticky Time Label -->
+<div class="w-8 flex-shrink-0 relative">
+<div class="sticky top-20 flex flex-col items-center">
+<span class="timeline-header font-label-md text-label-md text-secondary uppercase tracking-[0.2em] py-2">BUGUN</span>
+<div class="w-px h-24 bg-outline-variant mt-2"></div>
+</div>
+</div>
+<!-- Right Column: Manga Rows -->
+<div class="flex-grow space-y-6">
+<!-- Row 1 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="Solo Leveling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMka-0sVOj-zIV-bx4mxrxSO3N4XS3sJEOkSwJx0n_QnKfIorR4YnS7rdF0LasdDTtzUoSucBNiLHA3_41MbRciNEh-BTL5dXGVDLbv91TkUgRVTY070S7Id-CSTki6riZBtfiZ9_CoQWyTZTZaBcipZd2ycfnyUZwqi6Syo_hzf-hruwt_gCIYiL_Rmank0OuZDjvcW1PeSVXk-WgKQuC-enm6cQlK7LcT3zlbP6xoBc0WaVOlYITlrKyG2Xfqh_3TsALLaIa0jk"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Yolg'iz daraja oshirish</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">213-BOB</span>
+<span class="font-label-md text-label-md text-secondary">5 daqiqa oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Ekshn, Fantaziya</p>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="Jujutsu Kaisen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq28Vmh23RNIcIUpzGlg4Fz0IkvzFJlfqRRdimWfaz4x8auB8ZUvakPdPSWOhYqBZc9_NgMas7knOswizx6Ijb_7sbJQ_HzY1nLBuOa-XfVAmg0VvPIg0YCaIUEpTX1sMHITl0pbEFE5Vvr0mv0fDb4x3se-JDRY2UDTsSEauseFJhFRMaJJs76HOcsvU79UiqNRaAbWgZfrmEaOc9FovVqG1JSWAg1GqryrMGtTiTeHHQBs4pd7e3hag0ju2IZDolz7a_USpTCkg"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Sehrli jang</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">251-BOB</span>
+<span class="font-label-md text-label-md text-secondary">42 daqiqa oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Shounen, G'ayritabiiy</p>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="Berserk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxWumoI0I2kUI8IdFFXONIdC4kXRWCnx2NFqtQ-DHzZTi5B7wfia0uVrjyUdAArqtU0etUamEfZw5gIUwPPpSR4SSaTgY-N6ebQPU2nU9wzcJdY8NzoeR4QxoyVjibjE1W-901DoT46M_P6oaYHSwbwc9eLAJ9mm2CSd7A50GEhpUjlgmW9-SCUHwD7T70cV3OTv_Ae7CthcFI6p2orGWfcZRXMiaQxqQo4M488PgPIRVYTI5uVkNKu5D-h0NMXFqoY2ZanXPzuH8"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Berserk</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">376-BOB</span>
+<span class="font-label-md text-label-md text-secondary">2 soat oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Qorong'u fantaziya, Seynen</p>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="Vinland Saga" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJXdt9yKG6lwLk0Jv0fxgpZ0fcqj7XrXmcJdgt4tlUEDzCeq5Nl9OscdpnSwuFkahyDHZ-C_Ve5pGopYP3ALqHsGcaOrZM42tcMTlVGXlGXR_qpR3x-vgLgad6ml9SeX6wIIdreuasfdbAK_shAws4dN2fQYWCeX9Le_WjGm-F7MmbGSO1W5yy0dUa-1FvYXI8bgLbNejX_3eWNaf8Lf0xNOUikwFWWkm3K2D4t3eFkSWkfZEVhwOKF4HKjmzfVLpGRqvJjkAAwhI"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Vinland sagasi</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">210-BOB</span>
+<span class="font-label-md text-label-md text-secondary">5 soat oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Tarixiy, Drama</p>
+</div>
+</div>
+<!-- Row 5 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="Chainsaw Man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXfG5U-oVUQvYO6-EfKNUZkasF4IiODa2XNSiheJGPeZ24sGbdoVoFKqTzTeyP5qDKGHzoChvnyMDatSIWffWxIYd4u-bbl58rJDpqa7a7gYHfUDmhQag2kue89JYpLtdOYiVCtYePCy35H0tr6WL-U_bZN1jhK6fKaMKb-jxENAam3oWD9TVetEwiwf1n9Al8XiaD97yiulHcd27V-cgphID4VXlZhzDLviacglkOvKDW28mHF4yzHQ_rOgUBhro9CBziYs9KC90"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Benzopilali odam</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">158-BOB</span>
+<span class="font-label-md text-label-md text-secondary">8 soat oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Dahshat, Komediya</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section: KECHA -->
+<section class="flex gap-4">
+<!-- Left Column: Sticky Time Label -->
+<div class="w-8 flex-shrink-0 relative">
+<div class="sticky top-20 flex flex-col items-center">
+<span class="timeline-header font-label-md text-label-md text-secondary uppercase tracking-[0.2em] py-2">KECHA</span>
+<div class="w-px h-24 bg-outline-variant mt-2"></div>
+</div>
+</div>
+<!-- Right Column: Manga Rows -->
+<div class="flex-grow space-y-6">
+<!-- Row 6 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="Vagabond" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhQs6LFo9eLdtzZMnELK6mAEJcubY4bSPv1J8wHTAqqGXzqJ7U1O_pwrVTvfckYyvX-FdgkhfLm-4b-RDkOV0IYzbDeearAxmbdoy2VRWhxtZdl_rb9244JvKuPGbkR-MBGneQYxB1YOmO539erFSCj5JQ1E_CKb0YGOUgj2D6P7QBYSebgRB0kZMN7jN24yhxThLzTXjiBPVUtXuRoyHtdVK4cxUsV-wnZeGIolYXdv29hA2yuxw50Ie_tgs2O-GkTUDHlCShEuQ"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Darbadar</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">327-BOB</span>
+<span class="font-label-md text-label-md text-secondary">1 kun oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Samuray, Seynen</p>
+</div>
+</div>
+<!-- Row 7 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="One Punch Man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7AEr1HVNJGaLqGVILVi85cf-qrykg3FSBehUzJ7xuTgX62p-L-igKqqn-PlbCVKydcUFNNfnTr22LAlKAY2ssjlhS8bxczR8cm2jSTysbxmat86zWiYfZF5wjDFawaAuOXESi9Q2utg34F82cKshHbiwoexLAfvfht7iu_9-cv2ESfkTiEz0PfIweFCmTqcg2iIuhjMLqVJXWoh3liFmTuw4WBQiSe8gJamwZvkWFU-NzIXaWhTZGfyiI97lS7uYKD8W2J4EqiYk"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Vanpanchmen</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">201-BOB</span>
+<span class="font-label-md text-label-md text-secondary">1 kun oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Ekshn, Parodiya</p>
+</div>
+</div>
+<!-- Row 8 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="Tokyo Ghoul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn12cc9q3bFvpe1gKJTYbEaia9ADy9ydPZWs5Fv6jrV1y6Y_bEZFM8ud3dmLUp_ukMKxACL-kq_nE40vYhaK9S2VqRyWTeZf4ckD67Wo1ADS6epd6pNW-G4-zSdUXzhP8UgZ_s6OHDQd-ODyEX0PT0fOnqUqtYwman8uqAxhU-BT2S1-d2mZvugkQuYbzWVhTdijSYC6F4XBZ1CroIAdkJ640ihnjdwlThi9CQ6EpBFCtlLfxarZ9cR0OUpNgBDyFIQbxDV7IgZA4"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Tokio guli</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">179-BOB</span>
+<span class="font-label-md text-label-md text-secondary">1 kun oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Psixologik, Dahshat</p>
+</div>
+</div>
+<!-- Row 9 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="Monster" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2Ast28AsnSLD8kJb-e3wD3t0BZYddcL8lThOu_QXZ0aJQjFge2GV3v2gZY1Yid8JCeEGZbWyPL10m3g5XhwPNAnjN1mjxoWm-jdm0ANNCJvLATF39kI9Du_VOEWMsNgwtjCIpQytuUODHgIvT7TXrSw3Khk85QuOMqWvbrvSvg61k4egk3Y6Liam5QZf7SAbfqPrdxbXiJ-eljA1Rv2VJ51Q4jxrHbYjhwxZ0K4LKBej7fYK_cBxDJGfJrFH8tekTPaioTR-Tqac"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Maxluq</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">162-BOB</span>
+<span class="font-label-md text-label-md text-secondary">1 kun oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Triller, Detektiv</p>
+</div>
+</div>
+<!-- Row 10 -->
+<div class="flex gap-4 group active:scale-[0.98] transition-transform cursor-pointer">
+<div class="w-16 h-24 bg-surface-container overflow-hidden rounded-sm flex-shrink-0 border border-outline-variant group-hover:border-primary transition-colors">
+<img class="w-full h-full object-cover grayscale brightness-90 contrast-125 group-hover:grayscale-0 transition-all" data-alt="The Horizon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCboRxA0IPenxgLj26ML4Npe4wDDTC4podwI_kqW8YTpIOd7CDk60eRJ8rBprHMorEeUgvLdrU-sIvcO7Na0LwLQZozsruUV5rT2bNM2QP6fo_h1M1WWC_ifPWIU660icvsEb0UEY2wBvAnD5KH1rrhlu4lfLg_sPdX_wGJPs7nKR2JOFbVVkz0wXNg0UNaeDg6OxoUPk6S0tGRmA3wleekn3BunNONXniavsMHMrigRr1xLfvGLAhsO43tv26GBUscAW4f6bbgBpc"/>
+</div>
+<div class="flex flex-col justify-between py-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold leading-tight line-clamp-1">Ufq</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-primary text-background px-1.5 py-0.5 text-[10px] font-black tracking-tighter rounded-sm">21-BOB</span>
+<span class="font-label-md text-label-md text-secondary">1 kun oldin</span>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest">Drama, Urush</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Actions -->
+<div class="mt-12 flex flex-col items-center gap-6">
+<button class="px-8 py-3 bg-transparent border border-outline-variant text-primary font-label-md text-label-md hover:bg-white hover:text-black transition-all active:scale-95 uppercase tracking-widest">
+                HAMMASINI KO'RSATISH
+            </button>
+<!-- Subtle Loading Spinner -->
+<div class="flex flex-col items-center gap-2">
+<div class="custom-loader"></div>
+<span class="font-label-md text-label-md text-outline uppercase tracking-widest opacity-50">YUKLANMOQDA</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-outline-variant bg-surface-dim flex justify-around items-center h-16 pb-safe shadow-2xl">
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-[10px] mt-1 uppercase">Asosiy</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-[10px] mt-1 uppercase">Katalog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary relative active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">update</span>
+<span class="font-label-md text-[10px] mt-1 uppercase">Yangilanishlar</span>
+<div class="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full"></div>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="font-label-md text-[10px] mt-1 uppercase">Xatchoplar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-[10px] mt-1 uppercase">Profil</span>
+</a>
+</nav>
+<script>
+        // Simple scroll interaction for header
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                header.style.transform = 'translateY(0)';
+                return;
+            }
+            if (currentScroll > lastScroll) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            header.style.transition = 'transform 0.3s ease';
+            lastScroll = currentScroll;
+        });
+
+        // Click interaction for manga rows
+        document.querySelectorAll('.group').forEach(row => {
+            row.addEventListener('click', () => {
+                console.log('Manga ma\'lumotlarini ochish...');
+            });
+        });
+    </script>
+</body></html>

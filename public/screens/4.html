@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="uz"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Senkuro - Yangilanishlar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Integration of Design System Tokens -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "secondary": "#c7c6c6",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "surface-bright": "#3a3939",
+                    "tertiary-container": "#e2e2e2",
+                    "inverse-on-surface": "#313030",
+                    "surface-container": "#201f1f",
+                    "on-tertiary": "#2f3131",
+                    "on-secondary": "#303031",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "primary": "#ffffff",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "on-secondary-container": "#b6b5b5",
+                    "surface": "#141313",
+                    "on-background": "#e5e2e1",
+                    "inverse-surface": "#e5e2e1",
+                    "error-container": "#93000a",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-surface": "#e5e2e1",
+                    "on-primary-fixed": "#1a1c1c",
+                    "secondary-container": "#464747",
+                    "on-surface-variant": "#c4c7c8",
+                    "outline-variant": "#444748",
+                    "secondary-fixed": "#e4e2e2",
+                    "tertiary": "#ffffff",
+                    "surface-tint": "#c6c6c7",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-container-highest": "#353434",
+                    "surface-variant": "#353434",
+                    "on-secondary-fixed-variant": "#464747",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "on-primary-container": "#636565",
+                    "outline": "#8e9192",
+                    "on-primary-fixed-variant": "#454747",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005",
+                    "inverse-primary": "#5d5f5f",
+                    "surface-container-low": "#1c1b1b",
+                    "on-primary": "#2f3131",
+                    "on-tertiary-container": "#636565",
+                    "surface-dim": "#141313",
+                    "background": "#141313",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-container": "#e2e2e2",
+                    "primary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "section-gap": "80px",
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "density-high": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "body-sm": ["Geist"],
+                    "display-sm": ["Geist"],
+                    "label-md": ["Geist"],
+                    "headline-sm": ["Geist"],
+                    "display-lg-mobile": ["Geist"]
+            },
+            "fontSize": {
+                    "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                    "headline-lg": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                    "display-sm": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #141313;
+            color: #e5e2e1;
+            font-family: 'Geist', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-item-active {
+            border-left: 2px solid #ffffff;
+            background-color: #2a2a2a;
+            color: #ffffff;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #141313;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333333;
+        }
+    </style>
+</head>
+<body class="bg-background selection:bg-primary selection:text-surface-container-lowest overflow-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-16 hover:w-60 transition-all duration-300 z-50 bg-surface-container-low border-r border-outline-variant flex flex-col items-center py-density-high group">
+<div class="mb-10 mt-4 px-4 flex items-center w-full overflow-hidden">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="ml-4 font-headline-lg text-primary opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">MangaPremium</span>
+</div>
+<nav class="flex flex-col w-full gap-2 px-2">
+<a class="flex items-center h-12 w-full rounded-sm text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all duration-200" href="#">
+<div class="w-12 flex justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</div>
+<span class="ml-2 font-body-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Asosiy</span>
+</a>
+<a class="flex items-center h-12 w-full rounded-sm text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all duration-200" href="#">
+<div class="w-12 flex justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</div>
+<span class="ml-2 font-body-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Katalog</span>
+</a>
+<!-- Active State correctly applied to Updates -->
+<a class="flex items-center h-12 w-full rounded-sm border-l-2 border-primary text-primary bg-surface-container-high transition-all duration-200" href="#">
+<div class="w-12 flex justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="update" style="font-variation-settings: 'FILL' 1;">update</span>
+</div>
+<span class="ml-2 font-body-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Yangilanishlar</span>
+</a>
+<a class="flex items-center h-12 w-full rounded-sm text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all duration-200" href="#">
+<div class="w-12 flex justify-center shrink-0">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+</div>
+<span class="ml-2 font-body-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Xatchoplar</span>
+</a>
+</nav>
+<div class="mt-auto mb-6 px-4 flex items-center w-full overflow-hidden">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<div class="ml-4 opacity-0 group-hover:opacity-100 transition-opacity overflow-hidden">
+<p class="font-label-md text-on-surface whitespace-nowrap">Profil</p>
+<p class="text-[10px] text-on-surface-variant whitespace-nowrap">Premium obuna</p>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-64px)] z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center h-16 px-margin-desktop">
+<div class="flex items-center gap-8">
+<h1 class="font-display-sm font-bold text-primary tracking-tight">MANGA</h1>
+<div class="relative group">
+<input class="bg-surface-container-low border border-outline-variant px-10 py-2 rounded-sm text-body-sm w-80 focus:outline-none focus:border-primary transition-all" placeholder="Yangilanishlarni qidirish..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="flex gap-8">
+<a class="font-label-md text-primary font-bold uppercase tracking-widest" href="#">Katalog</a>
+</nav>
+<div class="flex items-center gap-4 border-l border-outline-variant pl-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors scale-95 active:scale-90" data-icon="dark_mode">dark_mode</button>
+<button class="bg-primary text-surface px-6 py-1.5 font-label-md uppercase tracking-widest hover:bg-secondary transition-colors scale-95 active:scale-90">Kirish</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-16 pt-16 h-screen overflow-y-auto custom-scrollbar bg-background">
+<div class="max-w-7xl mx-auto px-margin-desktop py-12">
+<!-- Page Header Section -->
+<header class="mb-section-gap">
+<h2 class="font-display-lg text-primary mb-8 tracking-tighter">Yangilanishlar</h2>
+<!-- Filter Controls -->
+<div class="flex gap-3">
+<button class="px-8 py-2.5 bg-primary text-surface font-label-md rounded-sm transition-all hover:opacity-90 active:scale-95">Barchasi</button>
+<button class="px-8 py-2.5 bg-surface-container text-on-surface-variant border border-outline-variant font-label-md rounded-sm transition-all hover:bg-surface-container-high hover:text-primary active:scale-95">Mening xatchoplarim</button>
+</div>
+</header>
+<!-- Timeline Content -->
+<div class="space-y-section-gap">
+<!-- Section: Bugun -->
+<section>
+<div class="flex items-center gap-4 mb-8">
+<h3 class="font-headline-lg text-primary">Bugun</h3>
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+</div>
+<div class="flex flex-col divide-y divide-outline-variant/20 border-t border-b border-outline-variant/20">
+<!-- Update Row 1 -->
+<div class="group py-4 px-4 -mx-4 flex items-center gap-6 hover:bg-surface-container-low transition-all duration-300 cursor-pointer">
+<div class="w-14 h-20 bg-surface-container shrink-0 relative overflow-hidden rounded-[2px]">
+<img alt="Manga muqovasi" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf7pkwm-7cUzZe3AqMq6m_tWrEh1R1CPooxPL_1-mUetVzyAF-svWq6uTl52P8edh6GM9YQ8efdva7ZL4T9hUQmrHTge6BzUc1Ovy07r2U1mXFqo8_In77FElDWVedyPdTnbOFjl05UuuGkjT9X4N7WVfm95xReNEZEgPaFsezANqlP6QeO6KdGuYVBgRSaKFiXUQjsYAdSW55uqOZP2EgtWtu9mPPa_3nVoO5x-BB7gW4JeMuzm4WLW2RuRQaUFylshB8M43mm2A"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors truncate mb-1">Магическая битва</h4>
+<span class="inline-block bg-primary text-surface px-2 py-0.5 text-[11px] font-bold tracking-tight rounded-[2px] uppercase">213-bob</span>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface-variant">5 daqiqa avval</p>
+</div>
+</div>
+<!-- Update Row 2 -->
+<div class="group py-4 px-4 -mx-4 flex items-center gap-6 hover:bg-surface-container-low transition-all duration-300 cursor-pointer">
+<div class="w-14 h-20 bg-surface-container shrink-0 relative overflow-hidden rounded-[2px]">
+<img alt="Manga muqovasi" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmYLcxlHDyTrZZ4YNfxl4JSAYo3VJyINOAlEpbKGgsD1irI8eviAIV8JaM9XTdlAvmg1hr87mc1A9E56g_vThoMif78U9ABAk5EmoaK1bcTqBT5KlrijV1NwLXWEw62_yCjLTEuoqm2DAE-exC9OrBo7TKL1xY0MwuM6dli1BFO9i_m4PuQRZTGHMP7G4hg4uFevClSMwjJXVQMtBLG968J55xpIx2ba1W_0jHjeiD2s_EX8N-_XnmZW6PqDIH5JH9_UoQWGIXUOg"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors truncate mb-1">Бродяга</h4>
+<span class="inline-block bg-primary text-surface px-2 py-0.5 text-[11px] font-bold tracking-tight rounded-[2px] uppercase">1-tom 140-bob</span>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface-variant">2 soat avval</p>
+</div>
+</div>
+<!-- Update Row 3 -->
+<div class="group py-4 px-4 -mx-4 flex items-center gap-6 hover:bg-surface-container-low transition-all duration-300 cursor-pointer">
+<div class="w-14 h-20 bg-surface-container shrink-0 relative overflow-hidden rounded-[2px]">
+<img alt="Manga muqovasi" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfJCHxTc1Z1rwUUhqV3q04IBuxMk55sl4xH-Fy3oLf7NrpZsZMLDtYIgvY0834MEnbvq-wOSB7uzoMvJoMPRCI3yEMpDSOJuXFLVYNaRtftJe75ffD-kTvyINKmXGJuBeD422ejDwBUU9SZCTwpAOJZGe8iGEFdNe8iX3_eRGTcwR7OHDAj8TnFfoz0dukXxiR2xeVh4J8DBOqqjdGY-6NFznhBlA3_a-97KMPiR52BC3ds1AhACy8tm5rqQF9r7aDorRadwuB6cs"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors truncate mb-1">Призрак в доспехах</h4>
+<span class="inline-block bg-primary text-surface px-2 py-0.5 text-[11px] font-bold tracking-tight rounded-[2px] uppercase">88-bob</span>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface-variant">Bugun, 16:45</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Kecha -->
+<section class="pb-24">
+<div class="flex items-center gap-4 mb-8">
+<h3 class="font-headline-lg text-on-surface-variant">Kecha</h3>
+<div class="h-[1px] flex-grow bg-outline-variant/30"></div>
+</div>
+<div class="flex flex-col divide-y divide-outline-variant/20 border-t border-b border-outline-variant/20">
+<!-- Update Row 4 -->
+<div class="group py-4 px-4 -mx-4 flex items-center gap-6 hover:bg-surface-container-low transition-all duration-300 cursor-pointer">
+<div class="w-14 h-20 bg-surface-container shrink-0 relative overflow-hidden rounded-[2px]">
+<img alt="Manga muqovasi" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTGU_JleVxMgHkFm5g5MnvIY63CfSehyvq5oqhUp5vyl-mT4jEl3yusCCScYCConwRLNtoDnkpXgMr4sZtzkU7DJdtVkoant2oPocyc9i1jB3uSHs4dtitMWYxz7z7HjpOlTisFqWS97jJ6fImmlvVveJ89w4cXjl8-NbSI68ZP0JT0J2IkeZ1ik5gH6ttQAvTCguH426tJySDxMbntCEH2K_cuAx_NIPj0Xbo1hybLR_9wAJJSKWYtaPkRTWugv8MlDUVlBiIe2E"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors truncate mb-1">Одинокий волк и куб</h4>
+<span class="inline-block bg-surface-container-highest text-primary border border-outline px-2 py-0.5 text-[11px] font-bold tracking-tight rounded-[2px] uppercase">42-bob</span>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface-variant">Kecha, 23:10</p>
+</div>
+</div>
+<!-- Update Row 5 -->
+<div class="group py-4 px-4 -mx-4 flex items-center gap-6 hover:bg-surface-container-low transition-all duration-300 cursor-pointer">
+<div class="w-14 h-20 bg-surface-container shrink-0 relative overflow-hidden rounded-[2px]">
+<img alt="Manga muqovasi" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6ftdovikjzg9a27h41ZAYKy20KDexO2qRRwzuM8U3MVnzRqxLE2p4NOL9BA-V3ZPzdGRzEvG4qtvx5ft-TnD0RKLo8n1dyqY5ZyIgGwNzJvCY4aUmFEMBby8FMYYb_Ir5Br-Xh-PPtk0WAZ42iy1sauesO4nMw5uo46od2Czkk5NPbqTVfs8JtsxzCpXQgs3uR4FtLauDvObIZwDlIGgrOkPLGtdSxr_UkKqjaZVbhsjmkxmKToZjgpMTccnmCZhlLGO_d9reljs"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors truncate mb-1">Токийский гуль</h4>
+<span class="inline-block bg-surface-container-highest text-primary border border-outline px-2 py-0.5 text-[11px] font-bold tracking-tight rounded-[2px] uppercase">179-bob [FINAL]</span>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface-variant">Kecha, 14:20</p>
+</div>
+</div>
+<!-- Update Row 6 -->
+<div class="group py-4 px-4 -mx-4 flex items-center gap-6 hover:bg-surface-container-low transition-all duration-300 cursor-pointer">
+<div class="w-14 h-20 bg-surface-container shrink-0 relative overflow-hidden rounded-[2px]">
+<img alt="Manga muqovasi" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRPsf1zzAUQ8YAT-CMxhK8R83fxq9anDG8cuMamVIJVeK5zX7iEE8L21O1y-L9hqu87_mOLjlXTMfE4Wqhz2QRtQ4sXpTIKtatG510b6T-JED88-Z4LlFb-JoJgJtviQVf3fs9BHUv3Qnaz-_WYC9uq9aOGfidui5uXPTobXqkWLO-LO-FF16eLRQKufnUHn3d0KBvnzKPI-R8t7k86-K5j8BKa8Bq_Dxx0ZypMb6nBkEII-GTenBeoC_Hf8I8aKxrQt5AY6GqnAg"/>
+</div>
+<div class="flex-grow min-w-0">
+<h4 class="font-headline-sm text-on-surface group-hover:text-primary transition-colors truncate mb-1">Созданный в Бездне</h4>
+<span class="inline-block bg-surface-container-highest text-primary border border-outline px-2 py-0.5 text-[11px] font-bold tracking-tight rounded-[2px] uppercase">64-bob</span>
+</div>
+<div class="text-right">
+<p class="font-label-md text-on-surface-variant">Kecha, 09:05</p>
+</div>
+</div>
+<div class="py-8 flex items-center justify-center gap-4 border-t border-outline-variant/20">
+<button class="px-8 py-2.5 bg-surface-container text-on-surface font-label-md rounded-sm border border-outline-variant hover:bg-surface-container-high transition-all active:scale-95 uppercase tracking-widest">Barchasini ko'rsatish</button>
+<div class="w-5 h-5 border-2 border-on-surface-variant/30 border-t-primary rounded-full animate-spin"></div>
+<style>@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } } .animate-spin { animation: spin 1s linear infinite; }</style>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Floating Atmosphere Micro-interaction Layer -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] -top-[300px] -right-[300px] transition-transform duration-[2000ms]" id="ambient-glow"></div>
+</div>
+<script>
+        // Atmospheric effect following the cursor subtly
+        const glow = document.getElementById('ambient-glow');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            glow.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
+        });
+
+        // Search bar focus interaction
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.02]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.02]');
+        });
+    </script>
+</body></html>
