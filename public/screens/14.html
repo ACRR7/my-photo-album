@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="uz" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MANGA_DRIVE - Xatchoplar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.cdnfonts.com/css/geist" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #0e0e0e;
+            color: #e5e2e1;
+            font-family: 'Geist', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .manga-card-hover:hover .card-overlay {
+            opacity: 1;
+        }
+        .manga-card-hover:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.7);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#c6c6c7",
+                        "tertiary": "#ffffff",
+                        "secondary-fixed": "#e4e2e2",
+                        "outline-variant": "#444748",
+                        "on-surface-variant": "#c4c7c8",
+                        "on-secondary-fixed-variant": "#464747",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#353434",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-highest": "#353434",
+                        "on-tertiary-container": "#636565",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary": "#2f3131",
+                        "inverse-primary": "#5d5f5f",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "outline": "#8e9192",
+                        "on-primary-fixed-variant": "#454747",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "on-primary-container": "#636565",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-container": "#e2e2e2",
+                        "surface-dim": "#141313",
+                        "background": "#141313",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-container": "#e2e2e2",
+                        "surface-bright": "#3a3939",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary": "#c7c6c6",
+                        "on-error-container": "#ffdad6",
+                        "primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary": "#2f3131",
+                        "on-secondary": "#303031",
+                        "surface-container": "#201f1f",
+                        "surface": "#141313",
+                        "on-secondary-container": "#b6b5b5",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "secondary-container": "#464747",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed": "#1a1c1c",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "error-container": "#93000a",
+                        "on-background": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "density-high": "8px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "48px",
+                        "section-gap": "80px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Geist"],
+                        "headline-sm": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "display-md": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display-sm": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "display-md": ["36px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "display-sm": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="flex min-h-screen">
+<!-- Left Sidebar -->
+<aside class="h-screen sticky left-0 w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-8 space-y-6 shrink-0 z-50">
+<div class="px-6 mb-4">
+<h1 class="font-display-sm text-display-sm text-primary">MangaDrive</h1>
+<p class="font-label-md text-label-md text-on-surface-variant opacity-70">Premium Reader</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Home -->
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-3 hover:bg-surface-container hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Asosiy</span>
+</a>
+<!-- Catalog -->
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-3 hover:bg-surface-container hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-md text-label-md">Katalog</span>
+</a>
+<!-- Updates -->
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-3 hover:bg-surface-container hover:text-primary transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined">update</span>
+<span class="font-label-md text-label-md">Yangilanishlar</span>
+</a>
+<!-- Bookmarks (Active) -->
+<a class="flex items-center gap-4 text-primary font-bold border-l-2 border-primary pl-4 py-3 bg-surface-container-high transition-all duration-300 scale-[1.02]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="font-label-md text-label-md">Xatchoplar</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 border-t border-outline-variant pt-6">
+<a class="flex items-center gap-4 text-on-surface-variant pl-4 py-3 hover:bg-surface-container transition-all duration-300" href="#"><span class="material-symbols-outlined">person</span><span class="font-label-md text-label-md">Profil</span></a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col bg-surface-container-lowest min-h-screen overflow-hidden">
+<!-- Header Section -->
+<header class="px-margin-desktop pt-12 pb-8 flex flex-col gap-8">
+<h2 class="font-display-md text-display-md text-primary tracking-tighter">Xatchoplar</h2>
+<!-- Horizontal Filter Tabs -->
+<div class="flex gap-8 border-b border-outline-variant/30">
+<button class="pb-4 font-label-md text-label-md text-primary border-b-2 border-primary transition-all duration-200">
+                    O'qilmoqda
+                </button>
+<button class="pb-4 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200">
+                    Rejada
+                </button>
+<button class="pb-4 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200">
+                    O'qib bo'lingan
+                </button>
+<button class="pb-4 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-200">
+                    Tashlab ketilgan
+                </button>
+</div>
+</header>
+<!-- Slider Section (STRICT Horizontal Only) -->
+<div class="relative group px-margin-desktop py-4 flex-1 flex items-center">
+<!-- Left Arrow -->
+<button class="absolute left-6 z-40 w-12 h-12 rounded-full border border-outline-variant bg-surface-container-low/80 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-2xl backdrop-blur-sm opacity-0 group-hover:opacity-100" onclick="scrollSlider('left')">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<!-- Slider Container -->
+<div class="flex gap-gutter overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth w-full py-4" id="manga-slider">
+<!-- Manga Card 1 -->
+<div class="flex-none w-[280px] snap-start">
+<div class="manga-card-hover relative aspect-[2/3] overflow-hidden rounded-lg bg-surface-container-high border border-outline-variant/20 transition-all duration-500 cursor-pointer">
+<img alt="Manga Cover" class="w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLvb9haTK9zM8ehWVhztdsAenX6l5GWtpPe6CmUokK6rilwabA0mx5GKA6wpHRtjf7uF2PgBY9OjdJClsLekIMZXGjEYro6mUE8NbjS6NX77WQotn7wCeIyjFmTYnDN5pEgTUJ7q8lKNqVdRm8KR8OF_BytvLnhAls6_QiZu257Pj_O2ndik0ocrXzrevk2BpnxaPIgf5eFSZZeC52LT1P4kasn3uUnpnkQrvsMvdtktudUhPjH5dOCGGGI"/>
+<div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="bg-primary text-on-primary font-label-md text-[10px] w-fit px-2 py-0.5 rounded-sm mb-2">HOT</span>
+<h3 class="font-headline-sm text-headline-sm text-white line-clamp-2">The Digital Echoes</h3>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-surface-container-highest">
+<div class="h-full bg-primary" style="width: 20%;"></div>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="font-label-md text-label-md text-on-surface truncate">The Digital Echoes</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">24 / 120 gl.</p>
+</div>
+</div>
+<!-- Manga Card 2 -->
+<div class="flex-none w-[280px] snap-start">
+<div class="manga-card-hover relative aspect-[2/3] overflow-hidden rounded-lg bg-surface-container-high border border-outline-variant/20 transition-all duration-500 cursor-pointer">
+<img alt="Manga Cover" class="w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLtYTWG4OutnD_t9BVU4TUd5OKHBkDNDtJtYEOW9uPnj3g0ruanGijUo-9RzSvcBuvs9NgAc9H_x_h_QxsWlmh1kEmVxwc9j0eSAQ6rAtm7FyMkuyuNwPoxMCHmdeoqsd5zUHa0UgCTl1TCYxT2tRjWew9riMnh1x2zpGnzWGY1Bws3FxtLpGa3OaTeO5kYkp4Czi9_4SHe6erGUrrdPw_X5I-LpTru4G9AKDE0X2uRafiQHYWVAJh3AOA"/>
+<div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="bg-surface-container-highest text-on-surface font-label-md text-[10px] w-fit px-2 py-0.5 rounded-sm mb-2">THRILLER</span>
+<h3 class="font-headline-sm text-headline-sm text-white line-clamp-2">Monochrome Silence</h3>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-surface-container-highest">
+<div class="h-full bg-primary" style="width: 85%;"></div>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="font-label-md text-label-md text-on-surface truncate">Monochrome Silence</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">102 / 120 gl.</p>
+</div>
+</div>
+<!-- Manga Card 3 -->
+<div class="flex-none w-[280px] snap-start">
+<div class="manga-card-hover relative aspect-[2/3] overflow-hidden rounded-lg bg-surface-container-high border border-outline-variant/20 transition-all duration-500 cursor-pointer">
+<img alt="Manga Cover" class="w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLvj9Q0-dFxtX0aeC3wlJmvtDAviuboah3LBY0HIxW9_BOT8fgp_ffEUTR-XmhrYkTK5bl4IVviRABhuEWlUwrhpOavut_6jtvOimpEvK9yH59A1CwAUoH1EN0F_JP776Sm2ylMEX2E_OX-wx-lwcrfk6tvbE-dpWEmtwaIZqOS2Wk--HDqIY2r3n6ye6hUzHYdwTdHcHlVMwksLEQ34ag1P4AKS1IByHZbwG2AaI8WwnJH3wVYn8W0N7E8"/>
+<div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+<span class="bg-primary text-on-primary font-label-md text-[10px] w-fit px-2 py-0.5 rounded-sm mb-2">FANTASY</span>
+<h3 class="font-headline-sm text-headline-sm text-white line-clamp-2">Grimoire of Embers</h3>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-surface-container-highest">
+<div class="h-full bg-primary" style="width: 45%;"></div>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="font-label-md text-label-md text-on-surface truncate">Grimoire of Embers</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">45 / 100 gl.</p>
+</div>
+</div>
+<!-- Manga Card 4 -->
+<div class="flex-none w-[280px] snap-start">
+<div class="manga-card-hover relative aspect-[2/3] overflow-hidden rounded-lg bg-surface-container-high border border-outline-variant/20 transition-all duration-500 cursor-pointer">
+<img alt="Manga Cover" class="w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLvb9haTK9zM8ehWVhztdsAenX6l5GWtpPe6CmUokK6rilwabA0mx5GKA6wpHRtjf7uF2PgBY9OjdJClsLekIMZXGjEYro6mUE8NbjS6NX77WQotn7wCeIyjFmTYnDN5pEgTUJ7q8lKNqVdRm8KR8OF_BytvLnhAls6_QiZu257Pj_O2ndik0ocrXzrevk2BpnxaPIgf5eFSZZeC52LT1P4kasn3uUnpnkQrvsMvdtktudUhPjH5dOCGGGI"/>
+<div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+<h3 class="font-headline-sm text-headline-sm text-white line-clamp-2">The Second Echo</h3>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-surface-container-highest">
+<div class="h-full bg-primary" style="width: 10%;"></div>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="font-label-md text-label-md text-on-surface truncate">The Second Echo</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">12 / 120 gl.</p>
+</div>
+</div>
+<!-- Manga Card 5 -->
+<div class="flex-none w-[280px] snap-start">
+<div class="manga-card-hover relative aspect-[2/3] overflow-hidden rounded-lg bg-surface-container-high border border-outline-variant/20 transition-all duration-500 cursor-pointer">
+<img alt="Manga Cover" class="w-full h-full object-cover transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLtYTWG4OutnD_t9BVU4TUd5OKHBkDNDtJtYEOW9uPnj3g0ruanGijUo-9RzSvcBuvs9NgAc9H_x_h_QxsWlmh1kEmVxwc9j0eSAQ6rAtm7FyMkuyuNwPoxMCHmdeoqsd5zUHa0UgCTl1TCYxT2tRjWew9riMnh1x2zpGnzWGY1Bws3FxtLpGa3OaTeO5kYkp4Czi9_4SHe6erGUrrdPw_X5I-LpTru4G9AKDE0X2uRafiQHYWVAJh3AOA"/>
+<div class="card-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-6">
+<h3 class="font-headline-sm text-headline-sm text-white line-clamp-2">Fragmented Soul</h3>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-surface-container-highest">
+<div class="h-full bg-primary" style="width: 60%;"></div>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1">
+<p class="font-label-md text-label-md text-on-surface truncate">Fragmented Soul</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">60 / 100 gl.</p>
+</div>
+</div>
+</div>
+<!-- Right Arrow -->
+<button class="absolute right-6 z-40 w-12 h-12 rounded-full border border-outline-variant bg-surface-container-low/80 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-2xl backdrop-blur-sm opacity-0 group-hover:opacity-100" onclick="scrollSlider('right')">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Footer Shell -->
+<footer class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-12 w-full border-t border-outline-variant/20 mt-auto">
+<div class="flex flex-col gap-2">
+<h4 class="font-headline-sm text-headline-sm text-primary">MANGA_DRIVE</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-60">© 2024 MangaDrive Premium. Barcha huquqlar himoyalangan.</p>
+</div>
+<div class="flex gap-8 mt-8 md:mt-0">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Foydalanish shartlari</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">Maxfiylik siyosati</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#">DMCA</a>
+</div>
+</footer>
+</main>
+<script>
+        function scrollSlider(direction) {
+            const slider = document.getElementById('manga-slider');
+            const scrollAmount = 300;
+            if (direction === 'left') {
+                slider.scrollLeft -= scrollAmount;
+            } else {
+                slider.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Active Tab Logic
+        const tabs = document.querySelectorAll('header button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                    t.classList.add('text-on-surface-variant');
+                });
+                tab.classList.add('text-primary', 'border-b-2', 'border-primary');
+                tab.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

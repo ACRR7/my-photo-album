@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="uz"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "error-container": "#93000a",
+                "surface-container-low": "#1c1b1b",
+                "on-secondary-container": "#b6b5b5",
+                "on-primary-container": "#636565",
+                "on-background": "#e5e2e1",
+                "inverse-primary": "#5d5f5f",
+                "tertiary": "#ffffff",
+                "primary-container": "#e2e2e2",
+                "error": "#ffb4ab",
+                "on-tertiary": "#2f3131",
+                "secondary": "#c7c6c6",
+                "on-secondary-fixed-variant": "#464747",
+                "on-primary-fixed": "#1a1c1c",
+                "on-secondary-fixed": "#1b1c1c",
+                "outline-variant": "#444748",
+                "on-primary-fixed-variant": "#454747",
+                "on-error-container": "#ffdad6",
+                "on-secondary": "#303031",
+                "on-primary": "#2f3131",
+                "secondary-fixed": "#e4e2e2",
+                "outline": "#8e9192",
+                "on-tertiary-container": "#636565",
+                "surface": "#141313",
+                "tertiary-fixed-dim": "#c6c6c7",
+                "surface-container-lowest": "#0e0e0e",
+                "secondary-fixed-dim": "#c7c6c6",
+                "surface-dim": "#141313",
+                "background": "#000000",
+                "surface-container-highest": "#353434",
+                "surface-container-high": "#2a2a2a",
+                "on-error": "#690005",
+                "inverse-surface": "#e5e2e1",
+                "on-tertiary-fixed-variant": "#454747",
+                "primary-fixed": "#e2e2e2",
+                "tertiary-fixed": "#e2e2e2",
+                "surface-tint": "#c6c6c7",
+                "secondary-container": "#464747",
+                "on-tertiary-fixed": "#1a1c1c",
+                "on-surface-variant": "#c4c7c8",
+                "inverse-on-surface": "#313030",
+                "tertiary-container": "#e2e2e2",
+                "surface-variant": "#353434",
+                "primary-fixed-dim": "#c6c6c7",
+                "surface-bright": "#3a3939",
+                "primary": "#ffffff",
+                "on-surface": "#e5e2e1",
+                "surface-container": "#201f1f"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "gutter": "16px",
+                "density-high": "8px",
+                "section-gap": "80px",
+                "unit": "4px",
+                "margin-desktop": "48px",
+                "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Geist"],
+                "label-md": ["Geist"],
+                "headline-sm": ["Geist"],
+                "display-lg": ["Geist"],
+                "display-sm": ["Geist"],
+                "body-sm": ["Geist"],
+                "display-lg-mobile": ["Geist"],
+                "body-lg": ["Geist"]
+            },
+            "fontSize": {
+                "headline-lg": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                "display-sm": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e5e2e1;
+            font-family: 'Geist', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 2px;
+        }
+        .chapter-row:hover {
+            background-color: #0D0D0D;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- Global Layout Shell -->
+<div class="flex min-h-screen">
+<!-- Shared SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-surface border-r border-outline-variant flex flex-col py-margin-mobile z-50">
+<div class="px-6 mb-8">
+<span class="font-headline-lg text-headline-lg font-bold text-primary">Obsidian</span>
+<p class="text-on-surface-variant font-label-md text-[10px] tracking-widest mt-1">PREMIUM READER</p>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<!-- Asosiy -->
+<a class="flex items-center gap-4 text-on-surface-variant font-medium pl-4 py-3 hover:bg-surface-container-high hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">home</span>
+<span class="font-label-md text-label-md">Asosiy</span>
+</a>
+<!-- Katalog -->
+<a class="flex items-center gap-4 text-primary font-bold border-l-2 border-primary pl-4 py-3 bg-surface-container-high/20 transition-transform duration-200 scale-[1.02]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-md text-label-md">Katalog</span>
+</a>
+<!-- Yangilanishlar -->
+<a class="flex items-center gap-4 text-on-surface-variant font-medium pl-4 py-3 hover:bg-surface-container-high hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">update</span>
+<span class="font-label-md text-label-md">Yangilanishlar</span>
+</a>
+<!-- Xatchoplar -->
+<a class="flex items-center gap-4 text-on-surface-variant font-medium pl-4 py-3 hover:bg-surface-container-high hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">bookmarks</span>
+<span class="font-label-md text-label-md">Xatchoplar</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<a class="flex items-center gap-4 text-on-surface-variant font-medium pl-4 py-3 hover:bg-surface-container-high hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Sozlamalar</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[240px] w-full min-h-screen px-margin-desktop py-12">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-on-surface-variant mb-8 font-label-md text-[11px] uppercase tracking-[0.2em]">
+<a class="hover:text-primary transition-colors" href="#">KATALOG</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary/60">MANGA HAQIDA</span>
+</div>
+<!-- Manga Detail Grid -->
+<div class="grid grid-cols-12 gap-12">
+<!-- Left Column: Media & Actions -->
+<div class="col-span-12 md:col-span-4 lg:col-span-3 space-y-8">
+<div class="relative group">
+<!-- Manga Cover -->
+<div class="aspect-[2/3] w-full overflow-hidden border border-outline-variant bg-surface-container-lowest transition-all duration-500 group-hover:border-primary/50 group-hover:scale-[1.01]">
+<img alt="Shadows of Neo-Kyoto Cover" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW9fhYChmLufoCXjZ0uP_r6wlG4tbPRNJrPuWVTHrArfgV_ZIEP5j7zkEa2osjMQpUsSf59IUKDFqvZZw_P1bYKzrSiNdgC-KXBkpjis8h_hspDGp508ZrPmwh-vYMDIdHvvH0mErCg1UutRmE-acpj10DKfrv6Kkenc0dmbcLDwHnoE8E13Ofd-VQEbuI84cyf8dP_C5on-2A87jIITFHZrGpQuGsZOgO6TjbM1h0JBL7ELsrDcmRO5FxNVXvWUU8W_0HedjlFfw"/>
+</div>
+<!-- Floating Info -->
+<div class="absolute top-4 left-4 flex gap-2">
+<div class="bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-sm border border-outline-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-primary font-bold text-sm">4.9</span>
+</div>
+<div class="bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-sm border border-outline-variant">
+<span class="text-on-surface-variant font-label-md text-[10px] uppercase tracking-wider">DAVOM ETMOQDA</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="space-y-3">
+<button class="w-full py-4 bg-primary text-on-primary font-bold font-headline-sm uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all">
+                            O'QISH
+                        </button>
+<button class="w-full py-4 bg-transparent border border-outline-variant text-primary font-medium font-body-lg hover:bg-surface-container-high hover:border-primary transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">bookmark_add</span>
+<span class="">XATCHOPLARGA</span>
+</button>
+</div>
+<!-- Metadata List -->
+<div class="pt-6 border-t border-outline-variant space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-md">Muallif</span>
+<span class="text-primary font-medium">Tsutomu Nihei</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-md">Chiqarilgan yili</span>
+<span class="text-primary font-medium">2024</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-on-surface-variant font-label-md">Turi</span>
+<span class="text-primary font-medium">Manga</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Info & Chapters -->
+<div class="col-span-12 md:col-span-8 lg:col-span-9">
+<!-- Title Section -->
+<header class="mb-12">
+<h1 class="font-display-lg text-display-lg text-primary mb-2 uppercase tracking-tighter">SHADOWS OF NEO-KYOTO</h1>
+<p class="text-on-surface-variant font-body-lg italic mb-8">Shadows of the Forgotten Streets • 忘れられた通りの影</p>
+<!-- Genres -->
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-1.5 bg-surface-container border border-outline-variant text-on-surface-variant text-xs uppercase font-bold tracking-widest rounded-sm">Ekshen</span>
+<span class="px-4 py-1.5 bg-surface-container border border-outline-variant text-on-surface-variant text-xs uppercase font-bold tracking-widest rounded-sm">Fentezi</span>
+<span class="px-4 py-1.5 bg-surface-container border border-outline-variant text-on-surface-variant text-xs uppercase font-bold tracking-widest rounded-sm">Drama</span>
+<span class="px-4 py-1.5 bg-surface-container border border-outline-variant text-on-surface-variant text-xs uppercase font-bold tracking-widest rounded-sm">Kiberpank</span>
+</div>
+</header>
+<!-- Description -->
+<section class="mb-section-gap max-w-3xl">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-4 uppercase tracking-[0.2em] border-b border-outline-variant pb-2 inline-block">TAVSIF</h2>
+<div class="text-on-surface-variant font-body-lg leading-relaxed space-y-4">
+<p class="">
+                                Inson va mashina o'rtasidagi chegaralar abadiy yomg'ir ostida yuvilib ketgan dunyoda, Neo-Kyoto so'nayotgan sivilizatsiyaning so'nggi qal'asi bo'lib turibdi. Shahar bulutlar qadar yuksalgan, ammo uning ildizlari o'tmish soyalari shivirlaydigan tubsizlikka borib taqaladi.
+                            </p>
+<p class="">
+                                Bosh qahramon Kaito o'zi ko'mib yubormoqchi bo'lgan meros bilan yuzma-yuz kelishga majbur. Qadimgi ilohlar raqamli tarmoqlar ichida uyg'onishni boshlaganda, faqat dunyolar orasida yura oladiganlargina insoniyatning butunlay yo'q bo'lib ketishini to'xtata oladi.
+                            </p>
+</div>
+</section>
+<!-- Chapters List -->
+<section class="chapter-list-container">
+<div class="flex items-center justify-between mb-6 border-b border-outline-variant pb-4">
+<h2 class="font-headline-sm text-headline-sm text-primary uppercase tracking-[0.2em]">BOBLAR RO'YXATI</h2>
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant font-label-md">148 ta bob</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">swap_vert</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant">
+<div class="flex flex-col">
+<!-- Chapter Row 01 -->
+<div class="chapter-row flex items-center justify-between p-5 border-b border-outline-variant transition-colors cursor-pointer group">
+<div class="flex items-center gap-6">
+<span class="font-label-md text-primary/40 group-hover:text-primary transition-colors">148</span>
+<span class="font-headline-sm text-[16px] text-on-surface group-hover:translate-x-1 transition-transform">148-bob — Asl manbaga yo'l</span>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-on-surface-variant font-body-sm">Bugun, 14:30</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+</div>
+<!-- Chapter Row 02 -->
+<div class="chapter-row flex items-center justify-between p-5 border-b border-outline-variant transition-colors cursor-pointer group">
+<div class="flex items-center gap-6">
+<span class="font-label-md text-primary/40 group-hover:text-primary transition-colors">147</span>
+<span class="font-headline-sm text-[16px] text-on-surface group-hover:translate-x-1 transition-transform">147-bob — O'tmish aks-sadosi</span>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-on-surface-variant font-body-sm">Kecha, 09:15</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+</div>
+<!-- Chapter Row 03 -->
+<div class="chapter-row flex items-center justify-between p-5 border-b border-outline-variant transition-colors cursor-pointer group">
+<div class="flex items-center gap-6">
+<span class="font-label-md text-primary/40 group-hover:text-primary transition-colors">146</span>
+<span class="font-headline-sm text-[16px] text-on-surface group-hover:translate-x-1 transition-transform">146-bob — Soya ichidagi bitim</span>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-on-surface-variant font-body-sm">12-may 2024</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+</div>
+<!-- Chapter Row 04 -->
+<div class="chapter-row flex items-center justify-between p-5 border-b border-outline-variant transition-colors cursor-pointer group">
+<div class="flex items-center gap-6">
+<span class="font-label-md text-primary/40 group-hover:text-primary transition-colors">145</span>
+<span class="font-headline-sm text-[16px] text-on-surface group-hover:translate-x-1 transition-transform">145-bob — Yo'qolish protokoli</span>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-on-surface-variant font-body-sm">10-may 2024</span>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">download</span>
+</div>
+</div>
+<!-- Load More -->
+<button class="w-full py-6 text-on-surface-variant font-label-md uppercase tracking-widest hover:text-primary hover:bg-surface-container-high transition-all">
+                                    BARCHA BOBLARNI KO'RSATISH
+                                </button>
+</div>
+</div>
+</section>
+<!-- Related Manga (Mini Bento Grid) -->
+<section class="mt-section-gap">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-8 uppercase tracking-[0.2em]">O'XSHASH LOYIHALAR</h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] bg-surface-container-low border border-outline-variant mb-3 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Cinematic dark cyberpunk cityscape illustration with neon lights reflecting on wet streets, high contrast manga style artwork with sharp line work and deep shadows, obsidian color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvjBIbmpjS1q3wq8lvmKWHQfBBq2WUpQff-ExcnCqefkJQpDpaTmMx_vZTivrooO-Z5wEIBn3wKe6Y0PWUAUO4FIlOS5nL7Ijc5fZF9kowbyXtfgqdy0r9_mV0vqMSDo3EQvAICZcLrdrZZPzevzQq_ShxySv3p-ha0C28VSzNe5nDsODu6e8EK6cV7z36UXyt696-8pwp5B3Ty71x07iqO15_UGYUejysGuV7XDlr5Dm1FPMs2VSHDx4lz845z-OVWCu9kAcFKPs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<h3 class="font-headline-sm text-[14px] text-primary truncate">Cyber Drifters</h3>
+<p class="text-on-surface-variant text-[12px]">Manhva • 2023</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] bg-surface-container-low border border-outline-variant mb-3 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Futuristic noir manga illustration of a robotic protagonist standing on a rainy balcony overlooking a vertical megacity, monochromatic tones with subtle white glow highlights, tech-noir aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxJihuitNh03xzzZiQRcd2YME6JjZ4JXj7ZsGWafQ3GUwSdFq2InpqjI71Lom6f0KgDFg7Qw0QYCGRwXDpALiqnnq6s09lqJq6LLHm7yBqFK0HyzA_HOZgrBcdcqEN6yj-IZJO-AaD8-I0Uut58BwnCZNbCwJvHUVWCNBpHQK4ifZDeAa7sPhSd4wdVkPBl5qlWnJYtimQSqGZAz6QIusU-oULar0JKuutC4qeCGeyT7ywR5wLAGoLzUDjj_OoVBy3KkTHKHpl8vI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<h3 class="font-headline-sm text-[14px] text-primary truncate">The Chrome Soul</h3>
+<p class="text-on-surface-variant text-[12px]">Manga • 2024</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] bg-surface-container-low border border-outline-variant mb-3 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Surreal dark fantasy manga art featuring floating stone structures against a starry pitch-black sky, high contrast white outlines against black backgrounds, eerie and majestic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYY9YIDV07Z5UofBjkhaICdyWXdgQbI2P0GSMKBjuOA4UV2cmcOf-ERhDxqLTTIdy3Pe1lsMiH1C3EA5ts-PwVXTPJ_HsiD2NJ5ynNYSOqJiW4lpQcWSXNSMLgX3CIMOkuAdK1bbwbsH9hepQ-qR5NU6H3BtOMAab94EobeTNwxP0-qJ-Qf2iysKsInlqsR0O3u5IisCoFuvsvjJyrZJeAgH7cLFe3EZhmJ-YIVaKqZS8ypvCNZn2fUweMTNOR_AK0iB2_yety_fM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<h3 class="font-headline-sm text-[14px] text-primary truncate">Void Walkers</h3>
+<p class="text-on-surface-variant text-[12px]">Novella • 2022</p>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[2/3] bg-surface-container-low border border-outline-variant mb-3 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Detailed close-up illustration of a mechanical eye glowing with white light in a dark tech-noir setting, intricate machinery and wires, high-fidelity digital manga style by Tsutomu Nihei." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyPFpMUCBwXBxbRu5V00md4kZuVMMS-cwTS_iisHEELKz4Mj-YvoWasnmGdH9yIntvmJbizGTbHtenx4NLRvJR3ITHYMt775Mfmg6Jr5XtY23uO90I2yTpfY12lwC5819EOqvBPB0LYJYuZiFgMrfKPVtx-rEcn_8lwCVW-Gc4EKNr1tulrqSYE7LZ90YNt_2D8-Wb23Y5FiJ9u9W5y9H5c0g3Q27Q7BkmMTi8-HcFN5mMC6vrWB86oKYqRGJOplSp2eofsaDYQkw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<h3 class="font-headline-sm text-[14px] text-primary truncate">Silicon Dreams</h3>
+<p class="text-on-surface-variant text-[12px]">Manhva • 2024</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Premium Reader Interface Loaded in Uzbek');
+        });
+    </script>
+</body></html>

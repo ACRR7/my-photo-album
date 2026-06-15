@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="uz"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profil - MangaHub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700;800&display=swap');
+        
+        :root {
+            --density-high: 8px;
+            --margin-desktop: 48px;
+            --margin-mobile: 16px;
+            --section-gap: 80px;
+            --gutter: 16px;
+        }
+        
+        body {
+            font-family: 'Geist', sans-serif;
+            background-color: #141313;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Tonal Layers based on Style Guidance */
+        .layer-base { background-color: #141313; }
+        .layer-structural { background-color: #0D0D0D; }
+        .layer-interactive { background-color: #1A1A1A; }
+        .border-subtle { border-color: #333333; }
+
+        /* Typography utility classes mapped to config */
+        .font-display-lg { font-family: 'Geist', sans-serif; font-size: 48px; line-height: 1.1; letter-spacing: -0.04em; font-weight: 800; }
+        .font-display-sm { font-family: 'Geist', sans-serif; font-size: 32px; line-height: 1.2; letter-spacing: -0.03em; font-weight: 700; }
+        .font-headline-lg { font-family: 'Geist', sans-serif; font-size: 24px; line-height: 1.3; letter-spacing: -0.02em; font-weight: 700; }
+        .font-headline-sm { font-family: 'Geist', sans-serif; font-size: 20px; line-height: 1.4; letter-spacing: -0.01em; font-weight: 600; }
+        .font-body-lg { font-family: 'Geist', sans-serif; font-size: 16px; line-height: 1.6; letter-spacing: -0.01em; font-weight: 400; }
+        .font-body-sm { font-family: 'Geist', sans-serif; font-size: 14px; line-height: 1.5; letter-spacing: 0em; font-weight: 400; }
+        .font-label-md { font-family: 'Geist', sans-serif; font-size: 12px; line-height: 1; letter-spacing: 0.05em; font-weight: 600; }
+
+        /* Scrollbar hiding for clean UI */
+        ::-webkit-scrollbar { display: none; }
+        * { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#c6c6c7",
+                    "primary-fixed-dim": "#c6c6c7",
+                    "on-surface": "#e5e2e1",
+                    "on-primary": "#2f3131",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-container-lowest": "#0e0e0e",
+                    "outline": "#8e9192",
+                    "surface-dim": "#141313",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary-fixed-variant": "#454747",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "on-error": "#690005",
+                    "on-surface-variant": "#c4c7c8",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "surface-container": "#201f1f",
+                    "on-tertiary-container": "#636565",
+                    "tertiary": "#ffffff",
+                    "surface-bright": "#3a3939",
+                    "background": "#141313",
+                    "secondary-container": "#464747",
+                    "on-tertiary": "#2f3131",
+                    "on-secondary": "#303031",
+                    "on-primary-container": "#636565",
+                    "error": "#ffb4ab",
+                    "error-container": "#93000a",
+                    "surface-container-highest": "#353434",
+                    "outline-variant": "#444748",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "surface-variant": "#353434",
+                    "secondary-fixed": "#e4e2e2",
+                    "primary": "#ffffff",
+                    "primary-container": "#e2e2e2",
+                    "inverse-surface": "#e5e2e1",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface": "#141313",
+                    "inverse-primary": "#5d5f5f",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#464747",
+                    "secondary": "#c7c6c6",
+                    "on-primary-fixed": "#1a1c1c",
+                    "on-secondary-container": "#b6b5b5",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-background": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "tertiary-container": "#e2e2e2",
+                    "primary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "4px",
+                    "lg": "4px",
+                    "xl": "8px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "density-high": "8px",
+                    "margin-desktop": "48px",
+                    "unit": "4px",
+                    "section-gap": "80px",
+                    "margin-mobile": "16px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Geist"],
+                    "display-lg-mobile": ["Geist"],
+                    "label-md": ["Geist"],
+                    "headline-lg": ["Geist"],
+                    "display-sm": ["Geist"],
+                    "display-lg": ["Geist"],
+                    "body-lg": ["Geist"],
+                    "body-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "headline-sm": ["20px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "display-lg-mobile": ["32px", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+                    "label-md": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                    "headline-lg": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "display-sm": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                    "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                    "body-lg": ["16px", { "lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+                    "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-[#141313] text-white antialiased selection:bg-white selection:text-black">
+<!-- Left Sidebar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-[#0D0D0D] border-r border-[#333333] flex flex-col py-8 z-50 transition-all duration-300">
+<!-- Brand Header -->
+<div class="px-6 mb-12 flex flex-col gap-2">
+<h1 class="font-headline-lg text-white tracking-tighter">MangaHub</h1>
+<span class="font-label-md text-[#666666] uppercase">Premium Reader</span>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 flex flex-col gap-2 w-full">
+<a class="flex items-center gap-4 py-3 text-[#666666] hover:bg-[#1A1A1A] transition-colors group relative border-l-2 border-transparent hover:border-[#333333] pl-6 pr-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">home</span>
+<span class="font-body-lg">Asosiy</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-[#666666] hover:bg-[#1A1A1A] transition-colors group relative border-l-2 border-transparent hover:border-[#333333] pl-6 pr-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">grid_view</span>
+<span class="font-body-lg">Katalog</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-[#666666] hover:bg-[#1A1A1A] transition-colors group relative border-l-2 border-transparent hover:border-[#333333] pl-6 pr-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">update</span>
+<span class="font-body-lg">Yangilanishlar</span>
+</a>
+<a class="flex items-center gap-4 py-3 text-[#666666] hover:bg-[#1A1A1A] transition-colors group relative border-l-2 border-transparent hover:border-[#333333] pl-6 pr-4" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">bookmarks</span>
+<span class="font-body-lg">Xatchoplar</span>
+</a>
+</nav>
+<!-- Profile Section -->
+<div class="mt-auto px-6 border-t border-[#333333] pt-6 flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#1A1A1A] overflow-hidden flex-shrink-0 border border-[#333333]">
+<img alt="User avatar" class="w-full h-full object-cover grayscale opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD29s1m-bgtzjpDrPdjDnQYBINeyYTmmye16V3c8KgBIxYmU9VaHToRVCWNJnt5PCQlRPlFNzZj0-YHziQ0c0B5OuqJUWeDC3F35Rx7O685_Or8xM2vmw8ZLjMb1xU9LGEGmlt09StwXmngm6ffdN8KBPbpi8rng1tHmDLM_4evjrNQNcD6Yw9Lc3kA1c7IpbEIE2GlG-8X2FNiKC4cenWqaeCw1BjO8iVHJG9ajmIAc3pR-T4cuR-VkL_ecbJhKsk83wjukuuRDE"/>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-white">MangaFan_01</span>
+<span class="font-label-md text-amber-500">PREMIUM</span>
+</div>
+</div>
+<button class="w-full py-3 bg-white text-black font-label-md uppercase tracking-widest hover:bg-gray-200 transition-colors rounded-[4px]">
+                PREMIUMGA O'TISH
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 p-[48px] bg-[#141313] min-h-screen">
+<!-- Header -->
+<header class="mb-20">
+<h2 class="font-display-sm text-white mb-2">Profil</h2>
+<p class="font-body-lg text-[#666666]">Hisob va sozlamalarni boshqarish.</p>
+</header>
+<!-- Two Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-7xl">
+<!-- Left Column: Identity & Stats -->
+<div class="lg:col-span-4 flex flex-col gap-12">
+<!-- Avatar & Identity Card -->
+<div class="bg-[#0D0D0D] border border-[#333333] p-8 flex flex-col items-center justify-center text-center gap-6 group hover:border-[#666666] transition-colors relative overflow-hidden rounded-[4px]">
+<div class="absolute inset-0 opacity-5 bg-gradient-to-br from-white to-transparent pointer-events-none"></div>
+<div class="relative w-40 h-40 rounded-full bg-[#1A1A1A] border-2 border-[#333333] p-1 group-hover:border-white transition-colors duration-500">
+<img alt="Large User Avatar" class="w-full h-full rounded-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp-fqvNuuKKyr3kwvlItcJcHEg3GVecdMmUulOKsyLICM3uh_e9cA-Kqt4h1W-K0cEvHaRDHReD6QRZ832ELtNtJ5z-PHCUhkzw6XlBK8zOniU6JPJdmgv2seZnvdpTe50619bLhX6TcPvNXDuTYuUyHdxXIN7VIS_9Jzm_HrG3Md710mNqZOCFpbsX4W2mD5TB_50iidn7kGVqWAERjy_lxHuExdzICnfSKhlH-3NDWv2b-useSvgRAp99WfuLH-UEk38WNK-MgQ"/>
+<!-- Premium Badge Overlay -->
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-[#1A1A1A] border border-[#333333] px-3 py-1 rounded-[2px] shadow-[0_4px_12px_rgba(0,0,0,0.8)] z-10 whitespace-nowrap">
+<span class="font-label-md text-amber-500 tracking-widest flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                PREMIUM
+                            </span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-1 z-10">
+<h3 class="font-headline-lg text-white">MangaFan_01</h3>
+<p class="font-body-sm text-[#666666]">2023-yildan beri a'zo</p>
+</div>
+</div>
+<!-- Reading Statistics Block -->
+<div class="bg-[#0D0D0D] border border-[#333333] flex flex-col rounded-[4px] overflow-hidden">
+<div class="p-6 border-b border-[#333333]">
+<h4 class="font-headline-sm text-white">Statistika</h4>
+</div>
+<div class="flex flex-col">
+<!-- Stat Item 1 -->
+<div class="flex justify-between items-center p-6 border-b border-[#333333] hover:bg-[#1A1A1A] transition-colors">
+<div class="flex items-center gap-3 text-[#666666]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">menu_book</span>
+<span class="font-body-lg">O'qilmoqda</span>
+</div>
+<span class="font-headline-sm text-white">12</span>
+</div>
+<!-- Stat Item 2 -->
+<div class="flex justify-between items-center p-6 border-b border-[#333333] hover:bg-[#1A1A1A] transition-colors">
+<div class="flex items-center gap-3 text-[#666666]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">check_circle</span>
+<span class="font-body-lg">O'qib bo'lingan</span>
+</div>
+<span class="font-headline-sm text-white">45</span>
+</div>
+<!-- Stat Item 3 -->
+<div class="flex justify-between items-center p-6 hover:bg-[#1A1A1A] transition-colors">
+<div class="flex items-center gap-3 text-[#666666]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 300;">bookmark</span>
+<span class="font-body-lg">Rejada</span>
+</div>
+<span class="font-headline-sm text-white">8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Settings Options -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<h3 class="font-headline-lg text-white border-b border-[#333333] pb-4 mb-2">Sozlamalar</h3>
+<div class="flex flex-col gap-4">
+<!-- Option 1 -->
+<button class="w-full text-left bg-[#0D0D0D] border border-[#333333] p-6 flex justify-between items-center group hover:bg-[#1A1A1A] hover:border-white transition-all duration-300 rounded-[4px]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#666666] group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 300;">person</span>
+<span class="font-body-lg text-white">Hisob sozlamalari</span>
+</div>
+<span class="material-symbols-outlined text-[#333333] group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 300;">chevron_right</span>
+</button>
+<!-- Option 2 -->
+<button class="w-full text-left bg-[#0D0D0D] border border-[#333333] p-6 flex justify-between items-center group hover:bg-[#1A1A1A] hover:border-white transition-all duration-300 rounded-[4px]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#666666] group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 300;">notifications</span>
+<span class="font-body-lg text-white">Bildirishnomalar</span>
+</div>
+<span class="material-symbols-outlined text-[#333333] group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 300;">chevron_right</span>
+</button>
+<!-- Option 3 (Language) -->
+<button class="w-full text-left bg-[#0D0D0D] border border-[#333333] p-6 flex justify-between items-center group hover:bg-[#1A1A1A] hover:border-white transition-all duration-300 rounded-[4px]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#666666] group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 300;">language</span>
+<div class="flex flex-col">
+<span class="font-body-lg text-white">Til / Language</span>
+<span class="font-body-sm text-[#666666]">O'zbekcha</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#333333] group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 300;">chevron_right</span>
+</button>
+<!-- Option 4 -->
+<button class="w-full text-left bg-[#0D0D0D] border border-[#333333] p-6 flex justify-between items-center group hover:bg-[#1A1A1A] hover:border-white transition-all duration-300 rounded-[4px]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#666666] group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 300;">support_agent</span>
+<span class="font-body-lg text-white">Texnik yordam</span>
+</div>
+<span class="material-symbols-outlined text-[#333333] group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 300;">chevron_right</span>
+</button>
+<!-- Divider -->
+<div class="h-px bg-[#333333] my-4 w-full"></div>
+<!-- Log Out Button -->
+<button class="w-full text-left bg-transparent border border-[#333333] p-6 flex justify-between items-center group hover:border-red-900 hover:bg-red-950/20 transition-all duration-300 rounded-[4px]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-red-600 group-hover:text-red-500 transition-colors" style="font-variation-settings: 'FILL' 0, 'wght' 400;">logout</span>
+<span class="font-body-lg text-red-600 group-hover:text-red-500 transition-colors">Chiqish</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.99)';
+            });
+            btn.addEventListener('mouseup', function() {
+                this.style.transform = 'scale(1)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

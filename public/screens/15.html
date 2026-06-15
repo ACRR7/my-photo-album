@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="uz"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        
+        body {
+            background-color: #141313;
+            color: #e5e2e1;
+            font-family: 'Geist', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .manga-card-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+        }
+
+        .active-tab-indicator {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary": "#c7c6c6",
+                        "tertiary-container": "#e2e2e2",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#e2e2e2",
+                        "tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "secondary-container": "#464747",
+                        "surface-container-lowest": "#0e0e0e",
+                        "surface-dim": "#141313",
+                        "on-primary": "#2f3131",
+                        "surface-container": "#201f1f",
+                        "secondary-fixed": "#e4e2e2",
+                        "inverse-primary": "#5d5f5f",
+                        "on-secondary-container": "#b6b5b5",
+                        "on-primary-fixed": "#1a1c1c",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-error-container": "#ffdad6",
+                        "surface-bright": "#3a3939",
+                        "surface": "#141313",
+                        "background": "#141313",
+                        "on-tertiary-container": "#636565",
+                        "primary-container": "#e2e2e2",
+                        "primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#464747",
+                        "inverse-on-surface": "#313030",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005",
+                        "surface-tint": "#c6c6c7",
+                        "on-surface": "#e5e2e1",
+                        "surface-variant": "#353434",
+                        "outline-variant": "#444748",
+                        "on-secondary": "#303031",
+                        "on-tertiary": "#2f3131",
+                        "outline": "#8e9192",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-primary-container": "#636565",
+                        "inverse-surface": "#e5e2e1",
+                        "on-surface-variant": "#c4c7c8",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-container-highest": "#353434"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "section-gap": "80px",
+                        "margin-desktop": "48px",
+                        "density-high": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "display-sm": ["Geist"],
+                        "display-lg-mobile": ["Geist"],
+                        "headline-sm": ["Geist"],
+                        "label-md": ["Geist"],
+                        "display-lg": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "body-sm": ["Geist"]
+                    },
+                    "fontSize": {
+                        "display-sm": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                        "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface-container-low border-b border-outline-variant flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">menu</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tighter uppercase">SHOGUN</h1>
+</div>
+<span class="material-symbols-outlined text-primary">search</span>
+</header>
+<!-- Content Area (Scroll-locked) -->
+<main class="pt-20 h-full flex flex-col">
+<!-- Page Title -->
+<section class="px-margin-mobile pt-4 pb-2">
+<h2 class="font-display-sm text-display-sm text-primary tracking-tighter">Xatchoplar</h2>
+</section>
+<!-- Filter Tabs -->
+<nav class="px-margin-mobile overflow-x-auto no-scrollbar flex items-center gap-6 border-b border-[#333333] mb-8">
+<button class="relative py-3 font-label-md text-label-md text-primary whitespace-nowrap">
+                O'qilmoqda
+                <div class="active-tab-indicator"></div>
+</button>
+<button class="py-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap opacity-60">
+                Rejada
+            </button>
+<button class="py-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap opacity-60">
+                O'qib bo'lingan
+            </button>
+<button class="py-3 font-label-md text-label-md text-on-surface-variant whitespace-nowrap opacity-60">
+                Tashlab ketilgan
+            </button>
+</nav>
+<!-- Main Slider Container -->
+<div class="relative flex-1 flex flex-col justify-center mb-24 overflow-hidden">
+<!-- Navigation Arrows -->
+<button class="absolute left-2 z-30 w-12 h-12 rounded-lg bg-black/60 border border-[#333333] flex items-center justify-center text-primary active:scale-90 transition-transform" onclick="scrollSlider(-1)">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="absolute right-2 z-30 w-12 h-12 rounded-lg bg-black/60 border border-[#333333] flex items-center justify-center text-primary active:scale-90 transition-transform" onclick="scrollSlider(1)">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<!-- Horizontal Slider -->
+<div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory px-margin-mobile gap-4" id="manga-slider">
+<!-- Card 1 -->
+<div class="snap-center flex-shrink-0 w-[70vw] max-w-[280px]">
+<div class="aspect-[2/3] w-full bg-[#1A1A1A] rounded-lg overflow-hidden border border-[#333333] manga-card-shadow group relative">
+<img alt="The Digital Echoes Cover" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLvb9haTK9zM8ehWVhztdsAenX6l5GWtpPe6CmUokK6rilwabA0mx5GKA6wpHRtjf7uF2PgBY9OjdJClsLekIMZXGjEYro6mUE8NbjS6NX77WQotn7wCeIyjFmTYnDN5pEgTUJ7q8lKNqVdRm8KR8OF_BytvLnhAls6_QiZu257Pj_O2ndik0ocrXzrevk2BpnxaPIgf5eFSZZeC52LT1P4kasn3uUnpnkQrvsMvdtktudUhPjH5dOCGGGI"/>
+<div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/40 to-transparent p-4">
+<div class="w-full h-0.5 bg-[#1A1A1A] mb-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[20%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">The Digital Echoes</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">24 / 120 qism</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="snap-center flex-shrink-0 w-[70vw] max-w-[280px]">
+<div class="aspect-[2/3] w-full bg-[#1A1A1A] rounded-lg overflow-hidden border border-[#333333] manga-card-shadow group relative">
+<img alt="Cyberpunk Cover" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLvb9haTK9zM8ehWVhztdsAenX6l5GWtpPe6CmUokK6rilwabA0mx5GKA6wpHRtjf7uF2PgBY9OjdJClsLekIMZXGjEYro6mUE8NbjS6NX77WQotn7wCeIyjFmTYnDN5pEgTUJ7q8lKNqVdRm8KR8OF_BytvLnhAls6_QiZu257Pj_O2ndik0ocrXzrevk2BpnxaPIgf5eFSZZeC52LT1P4kasn3uUnpnkQrvsMvdtktudUhPjH5dOCGGGI"/>
+<div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/40 to-transparent p-4">
+<div class="w-full h-0.5 bg-[#1A1A1A] mb-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">Cyberpunk</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">102 / 120 qism</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="snap-center flex-shrink-0 w-[70vw] max-w-[280px]">
+<div class="aspect-[2/3] w-full bg-[#1A1A1A] rounded-lg overflow-hidden border border-[#333333] manga-card-shadow group relative">
+<img alt="Toshkent Shadows Cover" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/AP1WRLvb9haTK9zM8ehWVhztdsAenX6l5GWtpPe6CmUokK6rilwabA0mx5GKA6wpHRtjf7uF2PgBY9OjdJClsLekIMZXGjEYro6mUE8NbjS6NX77WQotn7wCeIyjFmTYnDN5pEgTUJ7q8lKNqVdRm8KR8OF_BytvLnhAls6_QiZu257Pj_O2ndik0ocrXzrevk2BpnxaPIgf5eFSZZeC52LT1P4kasn3uUnpnkQrvsMvdtktudUhPjH5dOCGGGI"/>
+<div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/40 to-transparent p-4">
+<div class="w-full h-0.5 bg-[#1A1A1A] mb-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[45%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="font-headline-sm text-headline-sm text-primary line-clamp-1">Toshkent Shadows</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">54 / 120 qism</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 border-t border-outline-variant flex justify-around items-center h-16 px-gutter pb-safe bg-background">
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-label-md uppercase mt-1">Asosiy</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-label-md uppercase mt-1">Katalog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">update</span>
+<span class="text-[10px] font-label-md uppercase mt-1">Yangilanishlar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary border-t-2 border-primary pt-2 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="text-[10px] font-label-md uppercase mt-1">Xatchoplar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant pt-2 hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-md uppercase mt-1">Profil</span>
+</a>
+</nav>
+<script>
+        function scrollSlider(direction) {
+            const slider = document.getElementById('manga-slider');
+            const scrollAmount = slider.clientWidth * 0.75;
+            slider.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+                if (window.navigator.vibrate) window.navigator.vibrate(5);
+            });
+        });
+    </script>
+</body></html>

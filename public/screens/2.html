@@ -1,0 +1,566 @@
+<html class="dark" lang="uz" style=""><head></head><body class="bg-black">```html
+<link data-snapdom="injected-import" href="https://fonts.googleapis.com/css2?family=Geist:wght@100;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MangaPremium | Yuqori sifatli mutolaa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;400;600;700;800&display=swap');
+        
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Geist', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            transition: font-variation-settings 0.3s ease;
+        }
+
+        .nav-item:hover .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400;
+        }
+
+        .manga-card-glow:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(0deg, #000000 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 100%);
+        }
+
+        #sidebar:hover .nav-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .nav-label {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .rank-number {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer Specific Glassmorphism */
+        .newsletter-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-fixed": "#e4e2e2",
+                      "tertiary-fixed-dim": "#c6c6c7",
+                      "on-surface": "#e5e2e1",
+                      "surface-tint": "#c6c6c7",
+                      "tertiary": "#ffffff",
+                      "surface": "#141313",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-dim": "#141313",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "inverse-surface": "#e5e2e1",
+                      "primary-fixed": "#e2e2e2",
+                      "outline": "#8e9192",
+                      "inverse-on-surface": "#313030",
+                      "on-secondary-container": "#b6b5b5",
+                      "tertiary-container": "#e2e2e2",
+                      "background": "#141313",
+                      "on-tertiary-container": "#636565",
+                      "primary-fixed-dim": "#c6c6c7",
+                      "on-tertiary": "#2f3131",
+                      "on-primary": "#2f3131",
+                      "inverse-primary": "#5d5f5f",
+                      "error-container": "#93000a",
+                      "secondary": "#c7c6c6",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-secondary": "#303031",
+                      "on-error": "#690005",
+                      "surface-container-highest": "#353434",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-error-container": "#ffdad6",
+                      "primary-container": "#e2e2e2",
+                      "on-primary-fixed-variant": "#454747",
+                      "surface-container-low": "#1c1b1b",
+                      "on-surface-variant": "#c4c7c8",
+                      "error": "#ffb4ab",
+                      "on-background": "#e5e2e1",
+                      "tertiary-fixed": "#e2e2e2",
+                      "on-primary-fixed": "#1a1c1c",
+                      "primary": "#ffffff",
+                      "secondary-container": "#464747",
+                      "outline-variant": "#444748",
+                      "surface-container": "#201f1f",
+                      "on-primary-container": "#636565",
+                      "surface-variant": "#353434",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "surface-bright": "#3a3939"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-desktop": "48px",
+                      "density-high": "8px",
+                      "unit": "4px",
+                      "section-gap": "80px",
+                      "gutter": "16px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "headline-sm": ["Geist"],
+                      "display-sm": ["Geist"],
+                      "label-md": ["Geist"],
+                      "display-lg": ["Geist"],
+                      "body-sm": ["Geist"],
+                      "headline-lg": ["Geist"],
+                      "display-lg-mobile": ["Geist"],
+                      "body-lg": ["Geist"]
+              },
+              "fontSize": {
+                      "headline-sm": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "display-sm": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                      "label-md": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                      "headline-lg": ["24px", {"lineHeight": "1.3", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "800"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "letterSpacing": "-0.01em", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<!-- Shared SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-16 hover:w-60 transition-all duration-300 z-50 bg-surface-container-low border-r border-outline-variant flex flex-col items-start py-density-high group" id="sidebar">
+<div class="px-5 mb-8 flex items-center h-16">
+<span class="font-headline-lg text-headline-lg text-primary whitespace-nowrap overflow-hidden">M</span>
+<span class="nav-label ml-2 font-headline-lg text-headline-lg text-primary">MangaPremium</span>
+</div>
+<nav class="w-full flex-1 space-y-2">
+<a class="nav-item flex items-center h-12 w-full px-5 border-l-2 border-primary text-primary bg-surface-container-high transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="nav-label ml-6 font-body-sm text-body-sm">Asosiy</span>
+</a>
+<a class="nav-item flex items-center h-12 w-full px-5 text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="nav-label ml-6 font-body-sm text-body-sm">Katalog</span>
+</a>
+<a class="nav-item flex items-center h-12 w-full px-5 text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">update</span>
+<span class="nav-label ml-6 font-body-sm text-body-sm">Yangi</span>
+</a>
+<a class="nav-item flex items-center h-12 w-full px-5 text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="nav-label ml-6 font-body-sm text-body-sm">Xatchoplar</span>
+</a>
+</nav>
+<div class="px-5 py-6 w-full mt-auto">
+<div class="flex items-center">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant flex-shrink-0"></div>
+<span class="nav-label ml-6 font-body-sm text-body-sm text-on-surface-variant">Profil</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-16 transition-all duration-300">
+<!-- Shared TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-64px)] z-40 bg-surface/80 backdrop-blur-md flex justify-between items-center h-16 px-margin-desktop">
+<div class="flex items-center gap-8 flex-1">
+<h1 class="font-display-sm text-display-sm font-bold text-primary">MANGA</h1>
+<div class="relative w-full hidden md:block max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded py-2 pl-10 pr-4 font-body-sm text-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors" placeholder="Manga qidirish..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden lg:flex items-center gap-6">
+<a class="font-label-md text-label-md uppercase tracking-widest text-primary font-bold" href="#">Katalog</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors scale-95 active:scale-90">dark_mode</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-primary hover:text-primary transition-colors scale-95 active:scale-90 border border-outline-variant px-4 py-1.5 rounded">Kirish</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full h-[85vh] flex flex-col justify-end">
+<div class="absolute inset-0 z-0">
+<img alt="Hero" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBduWosp9Opi-1Avgwh-vFDbRxRNb9N6LoQjy-qIvD48ogTl5ar30-gfN6M_OPi6mr4pWSI2QYsZyLEglvPBN1MxTawpnHBtuOk2aaLYq3hk6XjB_UGkdOYgCDfEIcDJSVWoG3HODYeMLakv2UX7oDZCEoEt03gLKITS3wrv2semgWhxE5YqAvtbvBzx3Eq09Uc1hJihkoa1bjLY-AR95YMbLZpHq5M35kyHNHde6D1m3gh0eyjekbWsPAGsJg7BaeGsylKol8C26A"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 px-margin-desktop pb-24 max-w-4xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-primary text-on-primary font-label-md text-[10px] uppercase px-2 py-0.5 rounded-sm">Tavsiya etiladi</span>
+<span class="text-on-surface-variant font-label-md text-[10px] uppercase tracking-widest">Psixologik • Drama</span>
+</div>
+<h2 class="font-display-lg text-display-lg mb-4 text-white">THE SILENT WATCHER</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 line-clamp-3 max-w-2xl">
+                    Sukunat yagona valyuta bo'lgan futuristik shaharda sirli qahramon dunyoni butunlay sukutga cho'mdirishi mumkin bo'lgan fitnani fosh qiladi. Yuqori keskinlik va hayratlanarli san'at asari uyg'unligi.
+                </p>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-black font-headline-sm px-10 py-3 flex items-center gap-3 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                        HOZIR O'QISH
+                    </button>
+<button class="border border-outline-variant text-white font-headline-sm px-6 py-3 flex items-center gap-3 hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">add</span>
+                        XATCHOP
+                    </button>
+</div>
+</div>
+</section>
+<!-- Trending Now Grid -->
+<section class="px-margin-desktop mt-section-gap">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tighter">Hozir trendda</h3>
+<div class="h-0.5 w-12 bg-primary mt-2"></div>
+</div>
+<a class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors" href="#">Hammasini ko'rish</a>
+</div>
+<div class="flex items-center gap-6 mb-8 overflow-x-auto hide-scrollbar pb-2 sticky top-16 z-30 bg-black/80 backdrop-blur-md py-4 -mx-margin-desktop px-margin-desktop">
+<button class="font-label-md text-label-md uppercase tracking-widest border-b-2 border-primary text-primary pb-1 whitespace-nowrap">Barcha janrlar</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface pb-1 whitespace-nowrap">Jangari</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface pb-1 whitespace-nowrap">Sarguzasht</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface pb-1 whitespace-nowrap">Fantastika</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface pb-1 whitespace-nowrap">Dahshat</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface pb-1 whitespace-nowrap">Psixologik</button>
+<button class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant hover:text-on-surface pb-1 whitespace-nowrap">Romantika</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-gutter">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] overflow-hidden bg-surface-container border border-outline-variant transition-all duration-300 manga-card-glow">
+<img alt="Manga" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+<span class="text-[10px] font-bold text-white uppercase mb-1">Qism 142 • Yangi</span>
+</div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-primary">★ 9.4</div>
+</div>
+<div class="mt-3">
+<h4 class="font-label-md text-[13px] text-on-surface line-clamp-1 group-hover:text-primary transition-colors uppercase tracking-tight">Psychological Abyss</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Triller • Psixologik</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] overflow-hidden bg-surface-container border border-outline-variant transition-all duration-300 manga-card-glow">
+<img alt="Manga" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+<span class="text-[10px] font-bold text-white uppercase mb-1">Qism 84 • Yangilandi</span>
+</div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-primary">★ 8.9</div>
+</div>
+<div class="mt-3">
+<h4 class="font-label-md text-[13px] text-on-surface line-clamp-1 group-hover:text-primary transition-colors uppercase tracking-tight">Cursed Blade</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Jangari • Fantastika</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] overflow-hidden bg-surface-container border border-outline-variant transition-all duration-300 manga-card-glow">
+<img alt="Manga" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-primary">★ 8.1</div>
+</div>
+<div class="mt-3">
+<h4 class="font-label-md text-[13px] text-on-surface line-clamp-1 group-hover:text-primary transition-colors uppercase tracking-tight">Neon Genesis 1</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Detektiv</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] overflow-hidden bg-surface-container border border-outline-variant transition-all duration-300 manga-card-glow">
+<img alt="Manga" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-primary">★ 8.9</div>
+</div>
+<div class="mt-3">
+<h4 class="font-label-md text-[13px] text-on-surface line-clamp-1 group-hover:text-primary transition-colors uppercase tracking-tight">Cyber Night 2</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Detektiv</p>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] overflow-hidden bg-surface-container border border-outline-variant transition-all duration-300 manga-card-glow">
+<img alt="Manga" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-primary">★ 8.8</div>
+</div>
+<div class="mt-3">
+<h4 class="font-label-md text-[13px] text-on-surface line-clamp-1 group-hover:text-primary transition-colors uppercase tracking-tight">Iron Will 3</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Shonen</p>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] overflow-hidden bg-surface-container border border-outline-variant transition-all duration-300 manga-card-glow">
+<img alt="Manga" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-primary">★ 9.0</div>
+</div>
+<div class="mt-3">
+<h4 class="font-label-md text-[13px] text-on-surface line-clamp-1 group-hover:text-primary transition-colors uppercase tracking-tight">Neon Genesis 4</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Drama</p>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] overflow-hidden bg-surface-container border border-outline-variant transition-all duration-300 manga-card-glow">
+<img alt="Manga" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-primary">★ 8.3</div>
+</div>
+<div class="mt-3">
+<h4 class="font-label-md text-[13px] text-on-surface line-clamp-1 group-hover:text-primary transition-colors uppercase tracking-tight">Iron Will 5</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Shonen</p>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] overflow-hidden bg-surface-container border border-outline-variant transition-all duration-300 manga-card-glow">
+<img alt="Manga" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-1.5 py-0.5 rounded text-[10px] font-bold text-primary">★ 7.5</div>
+</div>
+<div class="mt-3">
+<h4 class="font-label-md text-[13px] text-on-surface line-clamp-1 group-hover:text-primary transition-colors uppercase tracking-tight">Dark Echoes 6</h4>
+<p class="text-[11px] text-on-surface-variant mt-0.5">Shonen</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Top 10 Charts Section -->
+<section class="px-margin-desktop mt-section-gap pb-20">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+<div class="flex-shrink-0">
+<h3 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tighter">Top 10 mashhur</h3>
+<div class="h-0.5 w-12 bg-primary mt-2"></div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+<div class="flex bg-surface-container-low p-1 rounded border border-outline-variant">
+<button class="px-4 py-1.5 text-label-md font-bold uppercase tracking-widest text-black bg-primary rounded transition-all">1 Kun</button>
+<button class="px-4 py-1.5 text-label-md font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-all">1 Hafta</button>
+<button class="px-4 py-1.5 text-label-md font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-all">1 Oy</button>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded border border-outline-variant">
+<button class="px-4 py-1.5 text-label-md font-bold uppercase tracking-widest text-black bg-primary rounded transition-all">Hammasi</button>
+<button class="px-4 py-1.5 text-label-md font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-all">Manga</button>
+<button class="px-4 py-1.5 text-label-md font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-all">Manhva</button>
+<button class="px-4 py-1.5 text-label-md font-bold uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-all">Manhua</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-6">
+<!-- Ranks 1-5 -->
+<div class="space-y-4">
+<!-- Rank 1 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 font-display-lg text-[120px] font-black italic opacity-[0.03] text-primary select-none rank-number">1</div>
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">01</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">The Silent Watcher</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Psixologik • Drama</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 142</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">12.5M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 2 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">02</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Shadow Realm</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Jangari • Fantastika</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 244</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">8.1M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">03</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Cyber Night</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Ilmiy-fantastik • Triller</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 89</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">5.4M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 4 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">04</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Cursed Blade</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Sarguzasht • Shonen</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 156</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">3.2M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 5 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">05</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Neon Genesis</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Mexa • Detektiv</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 42</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">2.8M</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Ranks 6-10 -->
+<div class="space-y-4">
+<!-- Rank 6 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">06</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Eternal Void</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">G'ayritabiiy</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 13</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">1.9M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 7 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">07</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Iron Will</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Yakkakurash</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 312</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">1.5M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 8 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">08</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Last Bastion</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Ilmiy-fantastika • Harbiy</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 198</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">1.2M</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 9 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">09</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkAgUgrE_Wyvig8_qXZLSJNUkuI7um7idnwdBhBJS7bdP5wFYAM-2V8Mz0rmJ7FsJs7PmptPJtAsROAFedIm5K4TS0nfgVhVVqyg-CCKs8SSYxYh0UTodems5mTsR7EC9UQ6CfZLEMly0NMlHNEKHO91LyVlU-xyOuCDRa0B1OrekCoQoKc7-UBJmc_rqlyF04HoQiRCRxs9T_utuJ54sRTogNV5QtN8OPD4h_R6FxLQIv0vKFiG5kivXHr5HMNDIsEzNQ_8hQ86E"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Fallen Star</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Jangari • Drama</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 76</span>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[10px] font-bold">940K</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rank 10 -->
+<div class="group flex items-center gap-6 p-4 bg-surface-container-lowest border border-outline-variant hover:border-primary transition-all duration-300 relative overflow-hidden">
+<span class="w-12 font-display-sm text-display-sm font-black text-primary italic rank-number">10</span>
+<div class="w-16 h-24 flex-shrink-0 bg-surface-container border border-outline-variant overflow-hidden">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOkA-EmT2L_rYvoVtXzcR9GX_sYMpO3qcv2BiWxunl6iC9vgNaHLK1LbEfwlpfv3R9FT1CBLrWTAS4oy5PmaHEXHuSwRHjhnNxNSEUTluqXnMaRb3HIGDE1PUC9pdlf2jlRMXwNoj_HcqhGH8kz9siEJ-iyVGBlpJ-ee3jITLVIYMglO9kl3Bv94fabVFIspewYuW0pVskBD1E1MmiqJ3FhOf6hFSUESs3gqZvGoeDtCQfUXoSWMS_X0Rv8nTMbCDG6IWcmMPLCW8"/>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-headline-sm text-on-surface uppercase truncate group-hover:text-primary transition-colors">Ghost Shell</h4>
+<p class="text-[11px] text-on-surface-variant uppercase mt-1">Ilmiy-fantastika • Seinen</p>
+<div class="flex items-center gap-4 mt-3">
+<span class="text-xs font-bold text-primary">Qism 31</span>
+</div></div></div></div></div></section><footer class="bg-surface-container-lowest border-t border-outline-variant pt-20 pb-10 px-margin-desktop mt-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-x-12 gap-y-10 mb-20">
+<div class="lg:col-span-1">
+<h2 class="font-display-sm text-display-sm font-bold text-primary mb-4">MANGA</h2>
+<p class="text-body-sm text-on-surface-variant leading-relaxed">
+        Eng sara raqamli mangalar uchun premium manzil. Sevimli asarlaringizni biz bilan mutolaa qiling.
+      </p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md uppercase tracking-widest text-primary mb-6">Kashf qilish</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Katalog</a></li>
+<li class=""></li></ul></div></div></footer></main></body></html>
