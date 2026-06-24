@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YangiRouteImport } from './routes/yangi'
+import { Route as XatchoplarRouteImport } from './routes/xatchoplar'
 import { Route as KatalogRouteImport } from './routes/katalog'
 import { Route as IndexRouteImport } from './routes/index'
 
 const YangiRoute = YangiRouteImport.update({
   id: '/yangi',
   path: '/yangi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const XatchoplarRoute = XatchoplarRouteImport.update({
+  id: '/xatchoplar',
+  path: '/xatchoplar',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KatalogRoute = KatalogRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/katalog' | '/yangi'
+  fullPaths: '/' | '/katalog' | '/xatchoplar' | '/yangi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/katalog' | '/yangi'
-  id: '__root__' | '/' | '/katalog' | '/yangi'
+  to: '/' | '/katalog' | '/xatchoplar' | '/yangi'
+  id: '__root__' | '/' | '/katalog' | '/xatchoplar' | '/yangi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   KatalogRoute: typeof KatalogRoute
+  XatchoplarRoute: typeof XatchoplarRoute
   YangiRoute: typeof YangiRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/yangi'
       fullPath: '/yangi'
       preLoaderRoute: typeof YangiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/xatchoplar': {
+      id: '/xatchoplar'
+      path: '/xatchoplar'
+      fullPath: '/xatchoplar'
+      preLoaderRoute: typeof XatchoplarRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/katalog': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   KatalogRoute: KatalogRoute,
+  XatchoplarRoute: XatchoplarRoute,
   YangiRoute: YangiRoute,
 }
 export const routeTree = rootRouteImport
