@@ -42,9 +42,7 @@ export default function AppShell({ screen }: { screen: number }) {
     setSrcDoc(null);
 
     // Decide where a click inside this screen should go.
-    let target = "/manga";
-    if (CHAPTER_SCREENS.has(screen)) target = "/oqish";
-    else if (READER_SCREENS.has(screen)) target = "/oqish";
+    const target = CHAPTER_SCREENS.has(screen) ? "/oqish" : "/manga";
 
     fetch(`/screens/${screen}.html`)
       .then((r) => r.text())
