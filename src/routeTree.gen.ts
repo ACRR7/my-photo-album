@@ -10,7 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YangiRouteImport } from './routes/yangi'
+import { Route as XatchoplarRouteImport } from './routes/xatchoplar'
+import { Route as SozlamalarRouteImport } from './routes/sozlamalar'
+import { Route as QidiruvRouteImport } from './routes/qidiruv'
+import { Route as ProfilRouteImport } from './routes/profil'
+import { Route as OqishRouteImport } from './routes/oqish'
 import { Route as KatalogRouteImport } from './routes/katalog'
+import { Route as AvtorizatsiyaRouteImport } from './routes/avtorizatsiya'
 import { Route as IndexRouteImport } from './routes/index'
 
 const YangiRoute = YangiRouteImport.update({
@@ -18,9 +24,39 @@ const YangiRoute = YangiRouteImport.update({
   path: '/yangi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const XatchoplarRoute = XatchoplarRouteImport.update({
+  id: '/xatchoplar',
+  path: '/xatchoplar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SozlamalarRoute = SozlamalarRouteImport.update({
+  id: '/sozlamalar',
+  path: '/sozlamalar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QidiruvRoute = QidiruvRouteImport.update({
+  id: '/qidiruv',
+  path: '/qidiruv',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilRoute = ProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OqishRoute = OqishRouteImport.update({
+  id: '/oqish',
+  path: '/oqish',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KatalogRoute = KatalogRouteImport.update({
   id: '/katalog',
   path: '/katalog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvtorizatsiyaRoute = AvtorizatsiyaRouteImport.update({
+  id: '/avtorizatsiya',
+  path: '/avtorizatsiya',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,31 +67,83 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
+  '/oqish': typeof OqishRoute
+  '/profil': typeof ProfilRoute
+  '/qidiruv': typeof QidiruvRoute
+  '/sozlamalar': typeof SozlamalarRoute
+  '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
+  '/oqish': typeof OqishRoute
+  '/profil': typeof ProfilRoute
+  '/qidiruv': typeof QidiruvRoute
+  '/sozlamalar': typeof SozlamalarRoute
+  '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
+  '/oqish': typeof OqishRoute
+  '/profil': typeof ProfilRoute
+  '/qidiruv': typeof QidiruvRoute
+  '/sozlamalar': typeof SozlamalarRoute
+  '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/katalog' | '/yangi'
+  fullPaths:
+    | '/'
+    | '/avtorizatsiya'
+    | '/katalog'
+    | '/oqish'
+    | '/profil'
+    | '/qidiruv'
+    | '/sozlamalar'
+    | '/xatchoplar'
+    | '/yangi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/katalog' | '/yangi'
-  id: '__root__' | '/' | '/katalog' | '/yangi'
+  to:
+    | '/'
+    | '/avtorizatsiya'
+    | '/katalog'
+    | '/oqish'
+    | '/profil'
+    | '/qidiruv'
+    | '/sozlamalar'
+    | '/xatchoplar'
+    | '/yangi'
+  id:
+    | '__root__'
+    | '/'
+    | '/avtorizatsiya'
+    | '/katalog'
+    | '/oqish'
+    | '/profil'
+    | '/qidiruv'
+    | '/sozlamalar'
+    | '/xatchoplar'
+    | '/yangi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvtorizatsiyaRoute: typeof AvtorizatsiyaRoute
   KatalogRoute: typeof KatalogRoute
+  OqishRoute: typeof OqishRoute
+  ProfilRoute: typeof ProfilRoute
+  QidiruvRoute: typeof QidiruvRoute
+  SozlamalarRoute: typeof SozlamalarRoute
+  XatchoplarRoute: typeof XatchoplarRoute
   YangiRoute: typeof YangiRoute
 }
 
@@ -68,11 +156,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof YangiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/xatchoplar': {
+      id: '/xatchoplar'
+      path: '/xatchoplar'
+      fullPath: '/xatchoplar'
+      preLoaderRoute: typeof XatchoplarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sozlamalar': {
+      id: '/sozlamalar'
+      path: '/sozlamalar'
+      fullPath: '/sozlamalar'
+      preLoaderRoute: typeof SozlamalarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qidiruv': {
+      id: '/qidiruv'
+      path: '/qidiruv'
+      fullPath: '/qidiruv'
+      preLoaderRoute: typeof QidiruvRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil': {
+      id: '/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof ProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oqish': {
+      id: '/oqish'
+      path: '/oqish'
+      fullPath: '/oqish'
+      preLoaderRoute: typeof OqishRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/katalog': {
       id: '/katalog'
       path: '/katalog'
       fullPath: '/katalog'
       preLoaderRoute: typeof KatalogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/avtorizatsiya': {
+      id: '/avtorizatsiya'
+      path: '/avtorizatsiya'
+      fullPath: '/avtorizatsiya'
+      preLoaderRoute: typeof AvtorizatsiyaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,7 +217,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvtorizatsiyaRoute: AvtorizatsiyaRoute,
   KatalogRoute: KatalogRoute,
+  OqishRoute: OqishRoute,
+  ProfilRoute: ProfilRoute,
+  QidiruvRoute: QidiruvRoute,
+  SozlamalarRoute: SozlamalarRoute,
+  XatchoplarRoute: XatchoplarRoute,
   YangiRoute: YangiRoute,
 }
 export const routeTree = rootRouteImport
