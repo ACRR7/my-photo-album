@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as YangiRouteImport } from './routes/yangi'
 import { Route as XatchoplarRouteImport } from './routes/xatchoplar'
+import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as KatalogRouteImport } from './routes/katalog'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const YangiRoute = YangiRouteImport.update({
 const XatchoplarRoute = XatchoplarRouteImport.update({
   id: '/xatchoplar',
   path: '/xatchoplar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilRoute = ProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KatalogRoute = KatalogRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/profil': typeof ProfilRoute
   '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/profil': typeof ProfilRoute
   '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/profil': typeof ProfilRoute
   '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/katalog' | '/xatchoplar' | '/yangi'
+  fullPaths: '/' | '/katalog' | '/profil' | '/xatchoplar' | '/yangi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/katalog' | '/xatchoplar' | '/yangi'
-  id: '__root__' | '/' | '/katalog' | '/xatchoplar' | '/yangi'
+  to: '/' | '/katalog' | '/profil' | '/xatchoplar' | '/yangi'
+  id: '__root__' | '/' | '/katalog' | '/profil' | '/xatchoplar' | '/yangi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   KatalogRoute: typeof KatalogRoute
+  ProfilRoute: typeof ProfilRoute
   XatchoplarRoute: typeof XatchoplarRoute
   YangiRoute: typeof YangiRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/xatchoplar'
       fullPath: '/xatchoplar'
       preLoaderRoute: typeof XatchoplarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil': {
+      id: '/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof ProfilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/katalog': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   KatalogRoute: KatalogRoute,
+  ProfilRoute: ProfilRoute,
   XatchoplarRoute: XatchoplarRoute,
   YangiRoute: YangiRoute,
 }
