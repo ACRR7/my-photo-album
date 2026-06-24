@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import {
   Home,
   BookOpen,
@@ -27,33 +27,71 @@ const secondaryNav = [
   { to: "/sozlamalar", label: "Sozlamalar", icon: Settings },
 ] as const;
 
+// Per-screen click → route mapping. Chapter-list screens send to reader,
+// browse screens send to manga detail.
+// Screens that display a chapter list / manga details → clicks open reader.
+const CHAPTER_SCREENS = new Set([1, 6, 9]);
+
 export default function AppShell({ screen }: { screen: number }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const navigate = useNavigate();
   const [srcDoc, setSrcDoc] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
     setSrcDoc(null);
+
+    // Decide where a click inside this screen should go.
+    const target = CHAPTER_SCREENS.has(screen) ? "/oqish" : "/manga";
+
     fetch(`/screens/${screen}.html`)
       .then((r) => r.text())
       .then((html) => {
         if (cancelled) return;
-        // Safety: ensure no embedded sidebar leaks through and main has no left margin.
         const hideCss = `
           <style>
             html, body { background: #000 !important; }
             aside[id="sidebar"], aside.fixed.left-0 { display: none !important; }
             main { margin-left: 0 !important; }
             body::-webkit-scrollbar { width: 0; }
+            a, button, [role="button"], .cursor-pointer { cursor: pointer; }
           </style>
         `;
-        const patched = html.replace(/<\/head>/i, `${hideCss}</head>`);
+        const clickScript = `
+          <script>
+          (function () {
+            const TARGET = ${JSON.stringify(target)};
+            document.addEventListener('click', function (e) {
+              const el = e.target.closest('a, button, [role="button"], .cursor-pointer, article, li, img');
+              if (!el) return;
+              // Avoid intercepting form controls.
+              if (e.target.closest('input, textarea, select, label')) return;
+              e.preventDefault();
+              e.stopPropagation();
+              parent.postMessage({ __mp_nav: TARGET }, '*');
+            }, true);
+          })();
+          </script>
+        `;
+        let patched = html.replace(/<\/head>/i, `${hideCss}</head>`);
+        patched = patched.replace(/<\/body>/i, `${clickScript}</body>`);
         setSrcDoc(patched);
       });
     return () => {
       cancelled = true;
     };
   }, [screen]);
+
+  useEffect(() => {
+    const onMsg = (e: MessageEvent) => {
+      const data = e.data as { __mp_nav?: string } | null;
+      if (data && typeof data.__mp_nav === "string") {
+        navigate({ to: data.__mp_nav });
+      }
+    };
+    window.addEventListener("message", onMsg);
+    return () => window.removeEventListener("message", onMsg);
+  }, [navigate]);
 
   const renderItem = (item: { to: string; label: string; icon: typeof Home }) => {
     const active =

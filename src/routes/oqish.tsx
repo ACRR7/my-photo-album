@@ -3,5 +3,5 @@ import AppShell from "../components/AppShell";
 
 export const Route = createFileRoute("/oqish")({
   head: () => ({ meta: [{ title: "MangaPremium — O'qish" }] }),
-  component: () => <AppShell screen={1} />,
+  component: () => <AppShell screen={16} />,
 });
