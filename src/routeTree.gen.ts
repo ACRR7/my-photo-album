@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as YangiRouteImport } from './routes/yangi'
 import { Route as XatchoplarRouteImport } from './routes/xatchoplar'
 import { Route as ProfilRouteImport } from './routes/profil'
+import { Route as OqishRouteImport } from './routes/oqish'
 import { Route as KatalogRouteImport } from './routes/katalog'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -30,6 +31,11 @@ const ProfilRoute = ProfilRouteImport.update({
   path: '/profil',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OqishRoute = OqishRouteImport.update({
+  id: '/oqish',
+  path: '/oqish',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KatalogRoute = KatalogRouteImport.update({
   id: '/katalog',
   path: '/katalog',
@@ -44,6 +50,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
   '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
   '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
@@ -59,21 +67,30 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/katalog': typeof KatalogRoute
+  '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
   '/xatchoplar': typeof XatchoplarRoute
   '/yangi': typeof YangiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/katalog' | '/profil' | '/xatchoplar' | '/yangi'
+  fullPaths: '/' | '/katalog' | '/oqish' | '/profil' | '/xatchoplar' | '/yangi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/katalog' | '/profil' | '/xatchoplar' | '/yangi'
-  id: '__root__' | '/' | '/katalog' | '/profil' | '/xatchoplar' | '/yangi'
+  to: '/' | '/katalog' | '/oqish' | '/profil' | '/xatchoplar' | '/yangi'
+  id:
+    | '__root__'
+    | '/'
+    | '/katalog'
+    | '/oqish'
+    | '/profil'
+    | '/xatchoplar'
+    | '/yangi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   KatalogRoute: typeof KatalogRoute
+  OqishRoute: typeof OqishRoute
   ProfilRoute: typeof ProfilRoute
   XatchoplarRoute: typeof XatchoplarRoute
   YangiRoute: typeof YangiRoute
@@ -102,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfilRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/oqish': {
+      id: '/oqish'
+      path: '/oqish'
+      fullPath: '/oqish'
+      preLoaderRoute: typeof OqishRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/katalog': {
       id: '/katalog'
       path: '/katalog'
@@ -122,6 +146,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   KatalogRoute: KatalogRoute,
+  OqishRoute: OqishRoute,
   ProfilRoute: ProfilRoute,
   XatchoplarRoute: XatchoplarRoute,
   YangiRoute: YangiRoute,
