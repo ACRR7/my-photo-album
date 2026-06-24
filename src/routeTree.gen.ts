@@ -15,6 +15,7 @@ import { Route as QidiruvRouteImport } from './routes/qidiruv'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as OqishRouteImport } from './routes/oqish'
 import { Route as KatalogRouteImport } from './routes/katalog'
+import { Route as AvtorizatsiyaRouteImport } from './routes/avtorizatsiya'
 import { Route as IndexRouteImport } from './routes/index'
 
 const YangiRoute = YangiRouteImport.update({
@@ -47,6 +48,11 @@ const KatalogRoute = KatalogRouteImport.update({
   path: '/katalog',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvtorizatsiyaRoute = AvtorizatsiyaRouteImport.update({
+  id: '/avtorizatsiya',
+  path: '/avtorizatsiya',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,6 +61,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
   '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
@@ -64,6 +71,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
   '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
@@ -74,6 +82,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
   '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
@@ -85,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/avtorizatsiya'
     | '/katalog'
     | '/oqish'
     | '/profil'
@@ -94,6 +104,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/avtorizatsiya'
     | '/katalog'
     | '/oqish'
     | '/profil'
@@ -103,6 +114,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/avtorizatsiya'
     | '/katalog'
     | '/oqish'
     | '/profil'
@@ -113,6 +125,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvtorizatsiyaRoute: typeof AvtorizatsiyaRoute
   KatalogRoute: typeof KatalogRoute
   OqishRoute: typeof OqishRoute
   ProfilRoute: typeof ProfilRoute
@@ -165,6 +178,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KatalogRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/avtorizatsiya': {
+      id: '/avtorizatsiya'
+      path: '/avtorizatsiya'
+      fullPath: '/avtorizatsiya'
+      preLoaderRoute: typeof AvtorizatsiyaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,6 +197,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvtorizatsiyaRoute: AvtorizatsiyaRoute,
   KatalogRoute: KatalogRoute,
   OqishRoute: OqishRoute,
   ProfilRoute: ProfilRoute,
