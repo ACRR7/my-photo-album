@@ -1,17 +1,35 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, BookOpen, Sparkles, Bookmark, User } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import {
+  Home,
+  BookOpen,
+  Sparkles,
+  Bookmark,
+  User,
+  Search,
+  LogIn,
+  Settings,
+  BookMarked,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
-const nav = [
+const primaryNav = [
   { to: "/", label: "Asosiy", icon: Home },
   { to: "/katalog", label: "Katalog", icon: BookOpen },
   { to: "/yangi", label: "Yangi", icon: Sparkles },
+  { to: "/xatchoplar", label: "Xatchoplar", icon: Bookmark },
+  { to: "/profil", label: "Profil", icon: User },
+] as const;
+
+const secondaryNav = [
+  { to: "/oqish", label: "O'qish", icon: BookMarked },
+  { to: "/qidiruv", label: "Qidiruv", icon: Search },
+  { to: "/avtorizatsiya", label: "Avtorizatsiya", icon: LogIn },
+  { to: "/sozlamalar", label: "Sozlamalar", icon: Settings },
 ] as const;
 
 export default function AppShell({ screen }: { screen: number }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [srcDoc, setSrcDoc] = useState<string | null>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -20,13 +38,13 @@ export default function AppShell({ screen }: { screen: number }) {
       .then((r) => r.text())
       .then((html) => {
         if (cancelled) return;
-        // Hide the embedded sidebars from the source HTML so our React
-        // sidebar is the single source of navigation.
+        // Safety: ensure no embedded sidebar leaks through and main has no left margin.
         const hideCss = `
           <style>
-            aside#sidebar, aside.fixed.left-0.top-0 { display: none !important; }
-            body > * { margin-left: 0 !important; }
-            main, .main-content { margin-left: 0 !important; padding-left: 24px !important; }
+            html, body { background: #000 !important; }
+            aside[id="sidebar"], aside.fixed.left-0 { display: none !important; }
+            main { margin-left: 0 !important; }
+            body::-webkit-scrollbar { width: 0; }
           </style>
         `;
         const patched = html.replace(/<\/head>/i, `${hideCss}</head>`);
@@ -37,63 +55,56 @@ export default function AppShell({ screen }: { screen: number }) {
     };
   }, [screen]);
 
+  const renderItem = (item: { to: string; label: string; icon: typeof Home }) => {
+    const active =
+      item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+    const Icon = item.icon;
+    return (
+      <Link
+        key={item.to}
+        to={item.to}
+        className={`relative flex h-11 items-center px-4 transition-colors ${
+          active
+            ? "bg-white/10 text-white"
+            : "text-white/55 hover:bg-white/5 hover:text-white"
+        }`}
+      >
+        {active && (
+          <span className="absolute left-0 top-1/2 h-6 w-[3px] -translate-y-1/2 rounded-r bg-white" />
+        )}
+        <Icon className="h-5 w-5 shrink-0" />
+        <span className="ml-5 whitespace-nowrap text-sm font-medium opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+          {item.label}
+        </span>
+      </Link>
+    );
+  };
+
   return (
     <div className="flex min-h-screen w-full bg-black text-white">
-      {/* Persistent React sidebar */}
-      <aside className="group fixed left-0 top-0 z-50 flex h-screen w-16 flex-col border-r border-white/10 bg-[#0a0a0a] py-4 transition-all duration-300 hover:w-56">
-        <div className="mb-6 flex h-12 items-center justify-center">
-          <span className="text-lg font-extrabold tracking-tighter text-white">M</span>
-        </div>
-        <nav className="flex flex-col">
-          {nav.map((item) => {
-            const active =
-              item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.to}
-                to={item.to}
-                className={`flex h-12 items-center px-5 transition-colors ${
-                  active
-                    ? "bg-white/10 text-white"
-                    : "text-white/60 hover:bg-white/5 hover:text-white"
-                }`}
-              >
-                <Icon className="h-5 w-5 shrink-0" />
-                <span className="ml-6 whitespace-nowrap text-sm font-medium opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                  {item.label}
-                </span>
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="mt-auto flex flex-col">
-          <a
-            href="#"
-            className="flex h-12 items-center px-5 text-white/60 hover:bg-white/5 hover:text-white"
-          >
-            <Bookmark className="h-5 w-5 shrink-0" />
-            <span className="ml-6 whitespace-nowrap text-sm opacity-0 transition-opacity group-hover:opacity-100">
-              Xatchoplar
-            </span>
-          </a>
-          <a
-            href="#"
-            className="flex h-12 items-center px-5 text-white/60 hover:bg-white/5 hover:text-white"
-          >
-            <User className="h-5 w-5 shrink-0" />
-            <span className="ml-6 whitespace-nowrap text-sm opacity-0 transition-opacity group-hover:opacity-100">
-              Profil
-            </span>
-          </a>
-        </div>
+      <aside className="group fixed left-0 top-0 z-50 flex h-screen w-14 flex-col border-r border-white/10 bg-[#0a0a0a] py-3 transition-all duration-300 hover:w-56">
+        <Link
+          to="/"
+          className="mb-6 flex h-11 items-center px-4 text-white"
+          aria-label="MangaPremium"
+        >
+          <span className="text-lg font-extrabold tracking-tighter">M</span>
+          <span className="ml-5 whitespace-nowrap text-sm font-bold tracking-wide opacity-0 transition-opacity group-hover:opacity-100">
+            MangaPremium
+          </span>
+        </Link>
+
+        <nav className="flex flex-col">{primaryNav.map(renderItem)}</nav>
+
+        <div className="mx-4 my-4 h-px bg-white/10" />
+
+        <nav className="flex flex-col">{secondaryNav.map(renderItem)}</nav>
       </aside>
 
-      {/* Main content area — embedded screen */}
-      <main className="ml-16 w-[calc(100%-4rem)] min-h-screen">
+      <main className="ml-14 w-[calc(100%-3.5rem)] min-h-screen">
         {srcDoc ? (
           <iframe
-            ref={iframeRef}
+            key={screen}
             srcDoc={srcDoc}
             title="screen"
             className="block h-screen w-full border-0"
