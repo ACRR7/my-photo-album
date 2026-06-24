@@ -15,6 +15,7 @@ import { Route as SozlamalarRouteImport } from './routes/sozlamalar'
 import { Route as QidiruvRouteImport } from './routes/qidiruv'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as OqishRouteImport } from './routes/oqish'
+import { Route as MangaRouteImport } from './routes/manga'
 import { Route as KatalogRouteImport } from './routes/katalog'
 import { Route as AvtorizatsiyaRouteImport } from './routes/avtorizatsiya'
 import { Route as IndexRouteImport } from './routes/index'
@@ -49,6 +50,11 @@ const OqishRoute = OqishRouteImport.update({
   path: '/oqish',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MangaRoute = MangaRouteImport.update({
+  id: '/manga',
+  path: '/manga',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const KatalogRoute = KatalogRouteImport.update({
   id: '/katalog',
   path: '/katalog',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
+  '/manga': typeof MangaRoute
   '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
   '/qidiruv': typeof QidiruvRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
+  '/manga': typeof MangaRoute
   '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
   '/qidiruv': typeof QidiruvRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/avtorizatsiya': typeof AvtorizatsiyaRoute
   '/katalog': typeof KatalogRoute
+  '/manga': typeof MangaRoute
   '/oqish': typeof OqishRoute
   '/profil': typeof ProfilRoute
   '/qidiruv': typeof QidiruvRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avtorizatsiya'
     | '/katalog'
+    | '/manga'
     | '/oqish'
     | '/profil'
     | '/qidiruv'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avtorizatsiya'
     | '/katalog'
+    | '/manga'
     | '/oqish'
     | '/profil'
     | '/qidiruv'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/avtorizatsiya'
     | '/katalog'
+    | '/manga'
     | '/oqish'
     | '/profil'
     | '/qidiruv'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AvtorizatsiyaRoute: typeof AvtorizatsiyaRoute
   KatalogRoute: typeof KatalogRoute
+  MangaRoute: typeof MangaRoute
   OqishRoute: typeof OqishRoute
   ProfilRoute: typeof ProfilRoute
   QidiruvRoute: typeof QidiruvRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OqishRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/manga': {
+      id: '/manga'
+      path: '/manga'
+      fullPath: '/manga'
+      preLoaderRoute: typeof MangaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/katalog': {
       id: '/katalog'
       path: '/katalog'
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AvtorizatsiyaRoute: AvtorizatsiyaRoute,
   KatalogRoute: KatalogRoute,
+  MangaRoute: MangaRoute,
   OqishRoute: OqishRoute,
   ProfilRoute: ProfilRoute,
   QidiruvRoute: QidiruvRoute,

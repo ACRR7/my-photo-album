@@ -29,8 +29,8 @@ const secondaryNav = [
 
 // Per-screen click → route mapping. Chapter-list screens send to reader,
 // browse screens send to manga detail.
-const CHAPTER_SCREENS = new Set([1, 6, 9, 13, 14, 15]);
-const READER_SCREENS = new Set([16, 11]);
+// Screens that display a chapter list / manga details → clicks open reader.
+const CHAPTER_SCREENS = new Set([1, 6, 9]);
 
 export default function AppShell({ screen }: { screen: number }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
